@@ -5,13 +5,6 @@ import { Counter, Parallax, ScrubText } from '@/components/ui/motion';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowIcon } from '@/components/ui/icons';
 
-const STAT_TONES = [
-  { stone: 'Calacatta', bg: '#f3ece2', ring: 'rgb(180 142 85 / 0.28)', accent: '#8d6a37', object: '/img/objects/sphere.webp', dark: false },
-  { stone: 'Travertine', bg: '#ead8bb', ring: 'rgb(141 106 55 / 0.25)', accent: '#7a5a2c', object: '/img/objects/discs.webp', dark: false },
-  { stone: 'Nero', bg: '#1d1714', ring: 'rgb(214 180 122 / 0.22)', accent: '#d6b47a', object: '/img/objects/cube.webp', dark: true },
-  { stone: 'Verde', bg: '#d9e3dc', ring: 'rgb(22 57 43 / 0.2)', accent: '#16392b', object: '/img/objects/arch.webp', dark: false },
-];
-
 /** Who we are: a scroll-lit statement, then a bento of proof (reference row 2). */
 export function Intro() {
   return (
@@ -53,24 +46,18 @@ export function Intro() {
           </Link>
         </Reveal>
 
-        {/* Stats: one stone per card, a polished object breaking out of the corner */}
-        {STATS.map((s, i) => {
-          const t = STAT_TONES[i];
-          return (
-            <Reveal key={s.label} delay={i * 70} className={`stat-card group ${t.dark ? 'stat-dark' : ''}`} style={{ '--tint': t.bg, '--ring': t.ring, '--accent': t.accent } as React.CSSProperties}>
-              <span aria-hidden="true" className="stat-ring" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={t.object} alt="" aria-hidden="true" className="stat-object" loading="lazy" width={512} height={512} />
-              <span className="stat-chip">0{i + 1} · {t.stone}</span>
-              <div className="relative mt-auto pt-16">
-                <p className="text-[clamp(2.8rem,5vw,4.4rem)] font-extralight leading-none tracking-[-0.04em] [font-family:var(--font-outfit)]">
-                  <Counter to={s.value} prefix={'prefix' in s ? s.prefix : ''} suffix={s.suffix} />
-                </p>
-                <p className="mt-3 text-sm opacity-75">{s.label}</p>
-              </div>
-            </Reveal>
-          );
-        })}
+        {/* Stats */}
+        {STATS.map((s, i) => (
+          <Reveal key={s.label} delay={i * 70} className={`u-card flex flex-col justify-between p-6 md:p-7 ${i === 2 ? 'bg-[var(--color-espresso)] text-[var(--color-paper)]' : ''}`}>
+            <span className={`u-label ${i === 2 ? 'text-[var(--color-gold-2)]' : 'text-[var(--color-ink-3)]'}`}>0{i + 1}</span>
+            <div className="mt-10">
+              <p className="text-[clamp(2.8rem,5vw,4.4rem)] font-extralight leading-none tracking-[-0.04em] [font-family:var(--font-outfit)]">
+                <Counter to={s.value} prefix={'prefix' in s ? s.prefix : ''} suffix={s.suffix} />
+              </p>
+              <p className={`mt-3 text-sm ${i === 2 ? 'text-white/70' : 'text-[var(--color-ink-2)]'}`}>{s.label}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

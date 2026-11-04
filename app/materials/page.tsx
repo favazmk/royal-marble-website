@@ -7,7 +7,6 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Parallax, Tilt } from '@/components/ui/motion';
 import { Faq } from '@/components/sections/Faq';
 import { Cta } from '@/components/sections/Cta';
-import { LineIcon } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
   title: 'Marble, Stone & Ventilated Facades, UAE',
@@ -15,13 +14,6 @@ export const metadata: Metadata = {
     'Calacatta, Nero Marquina, Verde, travertine and Azul quartzite cut in Umm Al Quwain — plus Rockany® SA6, CA, RA and undercut ventilated facade systems, designed and installed across the UAE.',
   alternates: { canonical: '/materials/' },
 };
-
-const FAMILY_TONES = [
-  { icon: 'layers', tint: '#f3ece2', accent: '#8d6a37' },
-  { icon: 'shield', tint: '#e7e3de', accent: '#261b16' },
-  { icon: 'leaf', tint: '#ead8bb', accent: '#7a5a2c' },
-  { icon: 'ruler', tint: '#e3e8ee', accent: '#1f3c66' },
-];
 
 const FACADE_FAQ = [
   { q: 'What is a ventilated facade?', a: 'A rainscreen system where the cladding panels hang on an aluminium sub-frame with an air gap behind them. The gap ventilates the wall, improves thermal performance and keeps moisture away from the structure.' },
@@ -68,13 +60,10 @@ export default function MaterialsPage() {
         <Heading id="families-title" eyebrow="What we work with" lines={['Four families,', '*one standard.*']} />
         <div className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {MATERIAL_FAMILIES.map((f, i) => (
-            <Reveal key={f.title} delay={i * 70} className="tone-card group !min-h-[16rem]" style={{ '--tint': FAMILY_TONES[i].tint, '--accent': FAMILY_TONES[i].accent } as React.CSSProperties}>
-              <div className="flex items-start justify-between">
-                <span className="tone-icon"><LineIcon name={FAMILY_TONES[i].icon} /></span>
-                <span className="u-label tabular-nums text-[var(--color-ink-3)]">0{i + 1}</span>
-              </div>
-              <h3 className="mt-auto pt-10 text-[1.45rem]">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--color-ink-2)]">{f.body}</p>
+            <Reveal key={f.title} delay={i * 70} className="lift u-card p-6">
+              <span className="u-label text-[var(--color-ink-3)]">0{i + 1}</span>
+              <h3 className="mt-8 text-[1.5rem]">{f.title}</h3>
+              <p className="mt-2 text-sm text-[var(--color-ink-2)]">{f.body}</p>
             </Reveal>
           ))}
         </div>

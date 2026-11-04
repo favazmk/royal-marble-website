@@ -1,33 +1,34 @@
 import { PROCESS } from '@/content/data';
 import { Reveal } from '@/components/ui/Reveal';
-import { Heading } from '@/components/ui/Heading';
-import { LineIcon } from '@/components/ui/icons';
+import { PlusIcon } from '@/components/ui/icons';
 
-const ICONS = ['chat', 'ruler', 'layers', 'blade', 'truck', 'check'];
-
-/** "Transparent process" — six frosted steps on a dark stone ground; each lifts and lights gold on hover. */
-export function Process({ title = ['A transparent process,', '*start to finish.*'] }: { title?: string[] }) {
+/** "Transparent process" — six numbered cards joined by + connectors (reference footer block). */
+export function Process({ title = 'A transparent process, start to finish.' }: { title?: string }) {
   return (
     <section aria-labelledby="process-title" className="u-shell py-12 md:py-20">
-      <div className="grain relative overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-night)] p-5 md:p-10 lg:p-14">
-        <span aria-hidden="true" className="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgb(214_180_122/0.18),transparent_65%)]" />
-        <div className="relative flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <Heading id="process-title" eyebrow="How we work" lines={title} light />
-          <Reveal className="max-w-sm text-sm text-white/60">
-            <p>Six stages, one team, one programme — every step signed off with you before the next one starts.</p>
+      <div className="u-card p-5 md:p-10 lg:p-14">
+        <div className="flex items-start justify-between gap-6">
+          <Reveal>
+            <h2 id="process-title" className="max-w-[18ch] text-[length:var(--text-headline)]">{title}</h2>
           </Reveal>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/mark-ink.webp" alt="" width={48} height={32} className="hidden h-8 w-auto opacity-70 md:block" />
         </div>
-        <ol className="relative mt-10 grid gap-3 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-10 grid gap-3 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
           {PROCESS.map((s, i) => (
-            <Reveal as="li" key={s.n} delay={(i % 3) * 90}>
-              <div className="step-card sheen group">
-                <div className="flex items-start justify-between">
-                  <span className="step-icon"><LineIcon name={ICONS[i]} /></span>
-                  <span className="step-n text-[2.4rem] font-extralight leading-none tracking-[-0.04em] text-white/35 [font-family:var(--font-outfit)]">{s.n}</span>
+            <Reveal as="li" key={s.n} delay={(i % 3) * 90} className="relative">
+              <div className="group h-full rounded-[var(--radius-lg)] bg-[var(--color-paper)] p-6 transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgb(38_27_22/0.45)]">
+                <div className="flex items-start justify-between gap-4 border-b border-[var(--color-line)] pb-4">
+                  <h3 className="max-w-[14ch] text-[1.2rem] font-normal leading-tight">{s.title}</h3>
+                  <span className="text-[2.6rem] font-extralight leading-[0.8] tracking-[-0.04em] text-[var(--color-ink)] transition-colors duration-500 group-hover:text-[var(--color-gold)] [font-family:var(--font-outfit)]">{s.n}</span>
                 </div>
-                <h3 className="mt-10 text-[1.25rem] font-normal leading-tight">{s.title}</h3>
-                <p className="mt-3 text-[0.9rem] leading-relaxed text-white/65">{s.body}</p>
+                <p className="mt-4 text-[0.92rem] leading-relaxed text-[var(--color-ink-2)]">{s.body}</p>
               </div>
+              {i % 3 !== 2 ? (
+                <span aria-hidden="true" className="absolute -right-[1.05rem] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-[var(--color-espresso)] text-white lg:grid">
+                  <PlusIcon />
+                </span>
+              ) : null}
             </Reveal>
           ))}
         </ol>
