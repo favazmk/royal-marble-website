@@ -26,7 +26,7 @@ export function Footer() {
           <div>
             <p className="u-label text-[var(--color-gold-2)]">Explore</p>
             <ul className="mt-5 space-y-2.5 text-[0.95rem]">
-              {[{ href: '/', label: 'Home' }, ...NAV, { href: '/contact', label: 'Contact' }].map((n) => (
+              {[...NAV, { href: '/contact', label: 'Contact' }].map((n) => (
                 <li key={n.href}><Link href={n.href} className="link-draw text-white/80 hover:text-[var(--color-gold-2)]">{n.label}</Link></li>
               ))}
             </ul>

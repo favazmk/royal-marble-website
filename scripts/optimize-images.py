@@ -60,12 +60,25 @@ def main():
     extra = {
         GEN / 'rm-svc-stair-floating.png': PUB / 'img' / 'services' / 'stair-floating.webp',
         GEN / 'rm-projects-hero.png': PUB / 'img' / 'projects' / 'hero.webp',
+        GEN / 'rm-svc-hero.png': PUB / 'img' / 'services' / 'hero.webp',
         OLD / 'hero-slabs.webp': PUB / 'img' / 'services' / 'slab-trio.webp',
         OLD / 'slab-carrara.webp': PUB / 'img' / 'stone' / 'carrara-slab.webp',
     }
     for src, dst in extra.items():
         if src.exists():
             save(src, dst, 1600, 80)
+
+    # Polished marble objects for the home stat cards: true-alpha cutouts, kept transparent.
+    for name in ['sphere', 'cube', 'discs', 'arch']:
+        src = GEN / f'rm-obj-{name}.png'
+        if src.exists():
+            im = Image.open(src).convert('RGBA')
+            im = im.crop(im.getbbox())
+            im.thumbnail((420, 420), Image.LANCZOS)
+            dst = PUB / 'img' / 'objects' / f'{name}.webp'
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            im.save(dst, 'WEBP', quality=86, method=6)
+            print(f'{dst.relative_to(ROOT)}  {im.width}x{im.height}  {dst.stat().st_size // 1024}KB')
 
     # Project photography from the previous site
     for src in sorted(OLD.iterdir()):

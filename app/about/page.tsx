@@ -6,6 +6,7 @@ import { Heading } from '@/components/ui/Heading';
 import { Reveal } from '@/components/ui/Reveal';
 import { Parallax, ScrubText } from '@/components/ui/motion';
 import { Cta } from '@/components/sections/Cta';
+import { LineIcon } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
   title: 'About — Marble Factory in Umm Al Quwain',
@@ -15,10 +16,10 @@ export const metadata: Metadata = {
 };
 
 const VALUES = [
-  { t: 'Professionalism', b: 'Quality products and services that comply with local and international norms, standards and best practice for natural and reconstituted stone.' },
-  { t: 'Functionality', b: 'Quality control is part of the culture — every member of the team takes part, in their own field and line of duty.' },
-  { t: 'Credibility', b: 'Project management that commits the right resources, with products, services and tasks monitored and supervised throughout.' },
-  { t: 'Sustainability', b: 'Lasting trust with our customers, suppliers, employees and the community we serve — and stone that lasts generations.' },
+  { icon: 'shield', tint: '#f3ece2', accent: '#8d6a37', t: 'Professionalism', b: 'Quality products and services that comply with local and international norms, standards and best practice for natural and reconstituted stone.' },
+  { icon: 'gauge', tint: '#f6f4f0', accent: '#261b16', t: 'Functionality', b: 'Quality control is part of the culture — every member of the team takes part, in their own field and line of duty.' },
+  { icon: 'link', tint: '#e3e8ee', accent: '#1f3c66', t: 'Credibility', b: 'Project management that commits the right resources, with products, services and tasks monitored and supervised throughout.' },
+  { icon: 'leaf', tint: '#dfe7e0', accent: '#16392b', t: 'Sustainability', b: 'Lasting trust with our customers, suppliers, employees and the community we serve — and stone that lasts generations.' },
 ];
 
 const PEOPLE = ['General management & administration', 'Technical & project management', 'Procurement & sales', 'QA/QC & HSE', 'Production & factory', 'Installation teams'];
@@ -113,10 +114,13 @@ export default function AboutPage() {
         <Heading id="values-title" eyebrow="Quality management policy" lines={['Quality,', '*always prevails.*']} />
         <div className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {VALUES.map((v, i) => (
-            <Reveal key={v.t} delay={i * 70} className="lift u-card p-6">
-              <span className="text-[2.4rem] font-extralight leading-none [font-family:var(--font-outfit)]">0{i + 1}</span>
-              <h3 className="mt-6 text-[1.35rem]">{v.t}</h3>
-              <p className="mt-2 text-sm text-[var(--color-ink-2)]">{v.b}</p>
+            <Reveal key={v.t} delay={i * 70} className="tone-card group" style={{ '--tint': v.tint, '--accent': v.accent } as React.CSSProperties}>
+              <div className="flex items-start justify-between">
+                <span className="tone-icon"><LineIcon name={v.icon} /></span>
+                <span className="u-label tabular-nums text-[var(--color-ink-3)]">0{i + 1}</span>
+              </div>
+              <h3 className="mt-auto pt-12 text-[1.45rem]">{v.t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--color-ink-2)]">{v.b}</p>
             </Reveal>
           ))}
         </div>

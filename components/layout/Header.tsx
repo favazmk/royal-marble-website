@@ -63,7 +63,7 @@ export function Header() {
 
             <ul className="hidden items-center gap-1 lg:flex">
               {NAV.map((n) => {
-                const active = pathname === n.href || pathname.startsWith(`${n.href}/`);
+                const active = n.href === '/' ? pathname === '/' : pathname === n.href || pathname.startsWith(`${n.href}/`);
                 return (
                   <li key={n.href}>
                     <Link
@@ -113,7 +113,7 @@ export function Header() {
       >
         <div className="u-shell flex h-full flex-col pb-8 pt-28">
           <ul className="flex flex-col">
-            {[{ href: '/', label: 'Home' }, ...NAV, { href: '/contact', label: 'Contact' }].map((n, i) => (
+            {[...NAV, { href: '/contact', label: 'Contact' }].map((n, i) => (
               <li key={n.href} className="border-b border-[var(--color-line)]">
                 <Link
                   href={n.href}

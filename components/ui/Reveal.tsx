@@ -32,11 +32,13 @@ export function Reveal({
   delay = 0,
   as: Tag = 'div',
   className = '',
+  style,
 }: {
   children: React.ReactNode;
   delay?: number;
   as?: 'div' | 'section' | 'li' | 'span';
   className?: string;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLElement>(null);
 
@@ -58,7 +60,7 @@ export function Reveal({
       // @ts-expect-error — one ref type across the allowed tag union
       ref={ref}
       className={`reveal ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ ...style, transitionDelay: `${delay}ms` }}
     >
       {children}
     </Tag>

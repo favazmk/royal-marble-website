@@ -27,6 +27,9 @@ export function SmoothScroll() {
       smoothWheel: true,
       // Touch devices have their own momentum; overriding it feels broken.
       syncTouch: false,
+      // In-page links (the Materials & Facades jump pills) glide to their
+      // section and clear the floating header.
+      anchors: { offset: -96 },
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -41,6 +44,8 @@ export function SmoothScroll() {
     };
     let saved = 0;
     try { saved = Number(sessionStorage.getItem(key)) || 0; sessionStorage.removeItem(key); } catch { /* storage blocked */ }
+    // A #hash in the URL is an explicit destination; it wins over a remembered position.
+    if (location.hash) saved = 0;
     window.addEventListener('pagehide', save);
     // Restore once the home film has pinned (it announces itself), or shortly
     // after mount on pages without one. Not on `load`: the film's frames keep

@@ -40,10 +40,10 @@ export const SITE = {
 } as const;
 
 export const NAV = [
+  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/materials', label: 'Materials' },
-  { href: '/facades', label: 'Facades' },
+  { href: '/materials', label: 'Materials & Facades' },
   { href: '/projects', label: 'Projects' },
 ] as const;
 

@@ -38,8 +38,8 @@ export default function ServicesPage() {
         title="Every stone element, from one accountable team."
         intro="Supply only, or the complete package: survey, samples, fabrication, delivery, installation, snagging and handover."
         mega="services"
-        image="/img/work/lobby-floor.webp"
-        alt="Polished marble lobby floor and stone-clad reception installed by Royal Marble"
+        image="/img/services/hero.webp"
+        alt="Double-height hall with a book-matched Statuario wall, a waterjet-cut marble floor medallion and a travertine bench in warm afternoon light"
         card={{ text: 'Send your drawings and quantities — we reply with a quotation and programme.', href: '/contact', cta: 'Request a quotation ↗' }}
       />
 

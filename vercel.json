@@ -1,0 +1,3 @@
+{
+  "redirects": [{ "source": "/facades", "destination": "/materials#facades", "permanent": true }, { "source": "/facades/", "destination": "/materials#facades", "permanent": true }]
+}

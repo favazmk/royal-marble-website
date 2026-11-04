@@ -57,7 +57,7 @@ export function FacadeRail() {
               </p>
             </div>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/facades" className="btn btn-light">Facade systems <span className="btn-dot"><ArrowIcon /></span></Link>
+              <Link href="/materials#facades" className="btn btn-light">Facade systems <span className="btn-dot"><ArrowIcon /></span></Link>
               <span className="flex items-center gap-2 text-sm text-white/50"><span className="lg:hidden">Swipe</span><span className="hidden lg:inline">Scroll</span> <span aria-hidden="true">→</span></span>
             </div>
           </div>

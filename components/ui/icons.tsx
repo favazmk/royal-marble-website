@@ -29,3 +29,27 @@ export function WhatsAppIcon({ size = 16 }: { size?: number }) {
     </svg>
   );
 }
+
+/** 24px line icons for the value and process cards. One stroke weight, round caps. */
+const LINE: Record<string, string> = {
+  shield: 'M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6L12 3Zm-3.2 9.2 2.2 2.2 4.3-4.6',
+  gauge: 'M4 15a8 8 0 1 1 16 0M12 15l4.2-4.2M7 15h1m8 0h1M12 7v1',
+  link: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1',
+  leaf: 'M5 19c0-8 5.5-13 14-14 0 8.5-5 14-13 14H5Zm0 0 7-7',
+  chat: 'M5 5h14v10H9l-4 4V5Zm4 4h6m-6 3h4',
+  ruler: 'M4 15 15 4l5 5L9 20l-5-5Zm4-3 2 2m1-5 2 2m1-5 2 2',
+  layers: 'm12 4 8 4-8 4-8-4 8-4Zm-8 8 8 4 8-4M4 16l8 4 8-4',
+  blade: 'M12 3v3m0 12v3M3 12h3m12 0h3M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-5.7-1.7 2 2m7.4 7.4 2 2m0-11.4-2 2m-7.4 7.4-2 2',
+  truck: 'M3 7h11v9H3V7Zm11 3h4l3 3v3h-7v-6ZM7 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z',
+  check: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-4 9.2 2.8 2.8L16 9.8',
+};
+
+export type LineIconName = keyof typeof LINE;
+
+export function LineIcon({ name, size = 22 }: { name: string; size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d={LINE[name]} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
