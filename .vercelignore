@@ -1,0 +1,9 @@
+# Source media the build never reads (frames and WebPs in public/ are what ship)
+assets/
+docs/
+scripts/
+graphify-out/
+.playwright-mcp/
+out/
+.next/
+node_modules/

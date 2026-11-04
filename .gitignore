@@ -9,3 +9,6 @@ public/film/.tmp-*
 .tmp-client.png
 .vercel
 *.tsbuildinfo
+
+.vercel
+.env*
