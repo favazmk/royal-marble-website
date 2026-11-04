@@ -1,0 +1,463 @@
+{
+  "communities": {
+    "0": [
+      "app_about_page",
+      "app_about_page_aboutpage",
+      "app_about_page_metadata",
+      "app_about_page_people",
+      "app_about_page_values",
+      "app_facades_page",
+      "app_facades_page_facade_faq",
+      "app_facades_page_facadespage",
+      "app_facades_page_metadata",
+      "app_materials_page",
+      "app_materials_page_materialspage",
+      "app_materials_page_metadata",
+      "app_page",
+      "app_page_home",
+      "app_page_metadata",
+      "app_projects_page",
+      "app_projects_page_metadata",
+      "app_projects_page_projectspage",
+      "app_services_page",
+      "app_services_page_metadata",
+      "app_services_page_servicespage",
+      "components_layout_jsonld_jsonld",
+      "components_sections_cta_cta",
+      "components_sections_faq",
+      "components_sections_faq_faq",
+      "components_sections_intro",
+      "components_sections_intro_intro",
+      "components_sections_pagehero",
+      "components_sections_pagehero_breadcrumbs",
+      "components_sections_pagehero_pagehero",
+      "components_sections_process",
+      "components_sections_process_process",
+      "components_sections_projectgrid_projectgrid",
+      "components_sections_projectsrail",
+      "components_sections_projectsrail_featured",
+      "components_sections_projectsrail_projectsrail",
+      "components_sections_servicesbento",
+      "components_sections_servicesbento_servicesbento",
+      "components_sections_servicesbento_span",
+      "components_sections_trust_trust",
+      "components_ui_heading",
+      "components_ui_heading_heading",
+      "components_ui_icons_plusicon",
+      "components_ui_motion",
+      "components_ui_motion_counter",
+      "components_ui_motion_parallax",
+      "components_ui_motion_reducedmotion",
+      "components_ui_motion_scrubtext",
+      "components_ui_motion_tilt",
+      "components_ui_reveal",
+      "components_ui_reveal_getobserver",
+      "components_ui_reveal_reveal",
+      "content_data_services",
+      "content_film_chapters"
+    ],
+    "1": [
+      "app_contact_page",
+      "app_contact_page_contactpage",
+      "app_contact_page_metadata",
+      "app_globals",
+      "app_layout",
+      "app_layout_manrope",
+      "app_layout_metadata",
+      "app_layout_outfit",
+      "app_layout_rootlayout",
+      "app_layout_viewport",
+      "app_not_found",
+      "app_not_found_notfound",
+      "app_robots",
+      "app_robots_dynamic",
+      "app_robots_robots",
+      "app_sitemap",
+      "app_sitemap_dynamic",
+      "app_sitemap_sitemap",
+      "components_layout_footer",
+      "components_layout_footer_footer",
+      "components_layout_header",
+      "components_layout_header_header",
+      "components_layout_jsonld",
+      "components_layout_jsonld_sitejsonld",
+      "components_layout_smoothscroll",
+      "components_layout_smoothscroll_smoothscroll",
+      "components_sections_cta",
+      "components_sections_facaderail",
+      "components_sections_facaderail_facaderail",
+      "components_sections_quoteform",
+      "components_sections_quoteform_quoteform",
+      "components_sections_quoteform_services",
+      "components_sections_quoteform_types",
+      "components_ui_icons",
+      "components_ui_icons_arrowicon",
+      "components_ui_icons_staricon",
+      "components_ui_icons_whatsappicon",
+      "lib_site",
+      "lib_site_nav",
+      "lib_site_site",
+      "lib_site_stats",
+      "lib_site_whatsapplink",
+      "next_config",
+      "next_config_nextconfig",
+      "ref_next"
+    ],
+    "2": [
+      "components_film_filmchapters",
+      "components_film_filmchapters_chapter",
+      "components_film_filmchapters_chapterstate",
+      "components_film_filmchapters_easeout",
+      "components_film_filmchapters_filmchapters",
+      "components_film_filmchapters_filmchaptershandle",
+      "components_film_filmloader",
+      "components_film_filmloader_filmloader",
+      "components_film_scrollfilm",
+      "components_film_scrollfilm_arrow",
+      "components_film_scrollfilm_choosetier",
+      "components_film_scrollfilm_clamp01",
+      "components_film_scrollfilm_easeinout",
+      "components_film_scrollfilm_props",
+      "components_film_scrollfilm_scrollfilm",
+      "components_film_useframeloader",
+      "components_film_useframeloader_filmmanifest",
+      "components_film_useframeloader_frameurl",
+      "components_film_useframeloader_loaderstate",
+      "components_film_useframeloader_supportsavif",
+      "components_film_useframeloader_tierspec",
+      "components_film_useframeloader_useframeloader",
+      "components_sections_materialsstudio",
+      "components_sections_materialsstudio_materialsstudio",
+      "components_sections_materialsstudio_smooth",
+      "components_sections_materialsstudio_turns",
+      "components_ui_magnetic",
+      "components_ui_magnetic_magnetic",
+      "content_data_materials",
+      "lib_use_media_query",
+      "lib_use_media_query_neverchanges",
+      "lib_use_media_query_usefinepointer",
+      "lib_use_media_query_useisclient",
+      "lib_use_media_query_usemediaquery",
+      "lib_use_media_query_useprefersreducedmotion",
+      "ref_gsap",
+      "ref_react",
+      "ref_three",
+      "roomenvironment_js",
+      "three"
+    ],
+    "3": [
+      "eslint_config",
+      "eslint_config_eslintconfig",
+      "package",
+      "package_dependencies",
+      "package_dependencies_gsap",
+      "package_dependencies_lenis",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_three",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_postcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_types_three",
+      "package_devdependencies_typescript",
+      "package_name",
+      "package_private",
+      "package_version",
+      "ref_eslint",
+      "ref_eslint_config_next",
+      "ref_lenis",
+      "ref_react_dom",
+      "ref_tailwindcss",
+      "ref_tailwindcss_postcss",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_types_three",
+      "ref_typescript"
+    ],
+    "4": [
+      "public_film_manifest",
+      "public_film_manifest_desktop_aspect",
+      "public_film_manifest_desktop_framecount",
+      "public_film_manifest_desktop_height",
+      "public_film_manifest_desktop_pad",
+      "public_film_manifest_desktop_pattern",
+      "public_film_manifest_desktop_patternfallback",
+      "public_film_manifest_desktop_width",
+      "public_film_manifest_generatedat",
+      "public_film_manifest_mobile_aspect",
+      "public_film_manifest_mobile_framecount",
+      "public_film_manifest_mobile_height",
+      "public_film_manifest_mobile_pad",
+      "public_film_manifest_mobile_pattern",
+      "public_film_manifest_mobile_patternfallback",
+      "public_film_manifest_mobile_width",
+      "public_film_manifest_source",
+      "public_film_manifest_source_duration",
+      "public_film_manifest_source_fps",
+      "public_film_manifest_source_height",
+      "public_film_manifest_source_width",
+      "public_film_manifest_tiers",
+      "public_film_manifest_tiers_desktop",
+      "public_film_manifest_tiers_mobile",
+      "public_film_manifest_version"
+    ],
+    "5": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "6": [
+      "components_sections_projectgrid",
+      "components_sections_projectgrid_cats",
+      "components_sections_trust",
+      "content_data",
+      "content_data_certifications",
+      "content_data_facade_systems",
+      "content_data_faq",
+      "content_data_material",
+      "content_data_material_families",
+      "content_data_process",
+      "content_data_project",
+      "content_data_projectcategory",
+      "content_data_projects",
+      "content_data_reviews",
+      "content_data_service",
+      "content_data_track_record"
+    ],
+    "7": [
+      "ref_node_child_process",
+      "ref_node_fs",
+      "ref_node_os",
+      "ref_node_path",
+      "ref_node_util",
+      "scripts_build_film",
+      "scripts_build_film_cropbox",
+      "scripts_build_film_encodetier",
+      "scripts_build_film_main",
+      "scripts_build_film_manifest",
+      "scripts_build_film_parseargs",
+      "scripts_build_film_probe",
+      "scripts_build_film_run"
+    ],
+    "8": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_film",
+      "package_scripts_film_desktop",
+      "package_scripts_film_mobile",
+      "package_scripts_images",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_scripts_typecheck"
+    ],
+    "9": [
+      "path",
+      "pathlib",
+      "pil",
+      "scripts_optimize_images",
+      "scripts_optimize_images_main",
+      "scripts_optimize_images_rationale_1",
+      "scripts_optimize_images_save"
+    ],
+    "10": [
+      "next_env_d",
+      "next_env_d_rationale_6",
+      "next_types_root_params_d",
+      "next_types_routes_d"
+    ],
+    "11": [
+      "scripts_placeholder_film",
+      "scripts_placeholder_film_clip",
+      "scripts_placeholder_film_sh__entry"
+    ],
+    "12": [
+      "postcss_config",
+      "postcss_config_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.14395527603074773,
+    "1": 0.10808080808080808,
+    "2": 0.09615384615384616,
+    "3": 0.06060606060606061,
+    "4": 0.08,
+    "5": 0.10526315789473684,
+    "6": 0.16666666666666666,
+    "7": 0.2564102564102564,
+    "8": 0.2,
+    "9": 0.3333333333333333,
+    "10": 0.5,
+    "11": 0.6666666666666666,
+    "12": 1.0
+  },
+  "gods": [
+    {
+      "id": "components_ui_reveal_reveal",
+      "label": "Reveal()",
+      "degree": 30
+    },
+    {
+      "id": "components_ui_icons_arrowicon",
+      "label": "ArrowIcon()",
+      "degree": 27
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
+      "degree": 23
+    },
+    {
+      "id": "components_ui_heading_heading",
+      "label": "Heading()",
+      "degree": 22
+    },
+    {
+      "id": "components_sections_cta_cta",
+      "label": "Cta()",
+      "degree": 16
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 15
+    },
+    {
+      "id": "components_sections_pagehero_breadcrumbs",
+      "label": "Breadcrumbs()",
+      "degree": 14
+    },
+    {
+      "id": "components_sections_pagehero_pagehero",
+      "label": "PageHero()",
+      "degree": 14
+    },
+    {
+      "id": "lib_site_site",
+      "label": "SITE",
+      "degree": 14
+    }
+  ],
+  "surprises": [
+    {
+      "source": "FacadesPage()",
+      "target": "FacadeRail()",
+      "source_files": [
+        "app/facades/page.tsx",
+        "components/sections/FacadeRail.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "MaterialsPage()",
+      "target": "MaterialsStudio()",
+      "source_files": [
+        "app/materials/page.tsx",
+        "components/sections/MaterialsStudio.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Home()",
+      "target": "ScrollFilm()",
+      "source_files": [
+        "app/page.tsx",
+        "components/film/ScrollFilm.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Home()",
+      "target": "FacadeRail()",
+      "source_files": [
+        "app/page.tsx",
+        "components/sections/FacadeRail.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Home()",
+      "target": "MaterialsStudio()",
+      "source_files": [
+        "app/page.tsx",
+        "components/sections/MaterialsStudio.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `next` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`?",
+      "why": "High betweenness centrality (0.226) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Props`, `LoaderState`, `Material` to the rest of the system?",
+      "why": "103 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14395527603074773 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `react` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 6`?",
+      "why": "High betweenness centrality (0.077) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10808080808080808 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09615384615384616 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

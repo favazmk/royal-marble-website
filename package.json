@@ -1,0 +1,35 @@
+{
+  "name": "royal-marble",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "film": "npm run film:desktop && npm run film:mobile",
+    "film:desktop": "node scripts/build-film.mjs --in assets/masters/desktop.mp4 --tier desktop --frames 240 --width 1280 --delogo 1128:568:64:64 --crf 22",
+    "film:mobile": "node scripts/build-film.mjs --in assets/masters/mobile.mp4 --tier mobile --frames 160 --width 720 --delogo 568:1128:64:64 --crf 24",
+    "images": "python -I scripts/optimize-images.py"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "^0.181.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.181.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

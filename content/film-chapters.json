@@ -1,0 +1,50 @@
+{
+  "$comment": "Progress ranges are 0-1 across the pinned scroll distance, timed against the final Gemini masters (exterior 0-2s, entrance 2-2.5s, stair hall 2.5-4s, living 4-6s, kitchen 6-7.5s, terrace 7.5-10s; film time = progress / SETTLE_FROM) (a drone tour of a marble villa). Re-check them against the final master. The last chapter must clear before SETTLE_FROM in ScrollFilm.",
+  "chapters": [
+    {
+      "id": "facade",
+      "index": "01",
+      "label": "Facade",
+      "headline": "Architecture, written in stone.",
+      "body": "Travertine and marble facades on ventilated systems — cut in our factory, fixed with millimetre joints.",
+      "from": 0.12,
+      "to": 0.2
+    },
+    {
+      "id": "threshold",
+      "index": "02",
+      "label": "Threshold",
+      "headline": "First impressions, cut to fit.",
+      "body": "Nero Marquina cladding, marble-clad pivot doors and entrances that set the tone before you step inside.",
+      "from": 0.2,
+      "to": 0.33
+    },
+    {
+      "id": "living",
+      "index": "03",
+      "label": "Hall & living",
+      "headline": "Book-matched. Slab by slab.",
+      "body": "Feature walls whose veins mirror perfectly, floating staircases, emerald fireplaces and floors polished to reflect the light.",
+      "from": 0.33,
+      "to": 0.56
+    },
+    {
+      "id": "detail",
+      "index": "04",
+      "label": "Detail",
+      "headline": "Every detail matters.",
+      "body": "Waterfall islands, splashbacks, vanities and inlays — templated on site and finished by hand.",
+      "from": 0.56,
+      "to": 0.72
+    },
+    {
+      "id": "horizon",
+      "index": "05",
+      "label": "Horizon",
+      "headline": "From factory to finished space.",
+      "body": "Pool decks to penthouses — supplied, installed and handed over on time by one accountable team.",
+      "from": 0.72,
+      "to": 0.93
+    }
+  ]
+}

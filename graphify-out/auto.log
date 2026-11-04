@@ -1,0 +1,22 @@
+
+=== Wed Nov  4 11:01:53 2026 ===
+[graphify extract] scanning C:\Users\favaz\Websites\Royal-marbles
+[graphify extract] --code-only: skipping 525 non-code file(s) (2 docs, 0 papers, 523 images) — no LLM extraction
+[graphify extract] found 51 code, 0 docs, 0 papers, 0 images
+[graphify extract] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif, 0005.avif (+400 more)
+[graphify extract] AST extraction on 51 code files...
+[graphify extract] wrote C:\Users\favaz\Websites\Royal-marbles\graphify-out\graph.json: 272 nodes, 663 edges, 13 communities
+[graphify extract] wrote C:\Users\favaz\Websites\Royal-marbles\graphify-out\.graphify_analysis.json
+[graphify extract] next: run `graphify cluster-only C:\Users\favaz\Websites\Royal-marbles` to generate GRAPH_REPORT.md and name communities
+Loading existing graph...
+Graph: 272 nodes, 663 edges
+Re-clustering...
+Done - 13 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+
+=== Wed Nov  4 11:55:19 2026 ===
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif, 0005.avif (+400 more)
+[graphify watch] Rebuilt: 286 nodes, 675 edges, 15 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
