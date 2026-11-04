@@ -24,6 +24,8 @@ const INTRO_TO = 0.12;
  * releases into the next section instead of cutting to it.
  */
 const SETTLE_FROM = 0.93;
+/** Frames either side of a shot change that carry the cross-dissolve. */
+const CUT_BLEND = 4;
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
@@ -66,7 +68,18 @@ export function ScrollFilm({ manifest, chapters, scrollLength = 6 }: Props) {
   const spec = tier?.spec ?? null;
   const { primed, complete, failed, progress: loadProgress, getFrame } = useFrameLoader(spec);
 
-  /** Paint one frame, cropped to cover the canvas. */
+  /**
+   * Paint one frame, cropped to cover the canvas — and cross-dissolve across a
+   * shot change.
+   *
+   * The vertical master contains one hard cut (kitchen to dining terrace). At
+   * 160 frames over six screens of scroll it arrives as a single-frame jump,
+   * which reads as a glitch rather than an edit. Inside CUT_BLEND frames either
+   * side of a declared cut both shots are drawn — the outgoing one frozen on its
+   * last frame, the incoming one held on its first — and the top layer's alpha
+   * ramps through. Eight frames of overlap is short enough to feel like a cut
+   * and long enough that the eye never catches a seam.
+   */
   const draw = useMemo(
     () => (index: number) => {
       const canvas = canvasRef.current;
@@ -74,17 +87,38 @@ export function ScrollFilm({ manifest, chapters, scrollLength = 6 }: Props) {
       const ctx = (ctxRef.current ??= canvas.getContext('2d', { alpha: false }));
       if (!ctx) return;
       ctx.imageSmoothingQuality = 'high';
-      const img = getFrame(index);
-      if (!img) return;
+
       const cw = canvas.width;
       const ch = canvas.height;
-      const s = Math.max(cw / img.width, ch / img.height);
-      const dw = img.width * s;
-      const dh = img.height * s;
-      // Desktop copy sits left, so a too-wide crop keeps the right of the frame
-      // where the subject is; the phone crop stays centred.
-      const x = narrow ? (cw - dw) / 2 : (cw - dw) * 0.65;
-      ctx.drawImage(img, x, (ch - dh) / 2, dw, dh);
+      const paint = (img: CanvasImageSource & { width: number; height: number }, alpha: number) => {
+        const s = Math.max(cw / img.width, ch / img.height);
+        const dw = img.width * s;
+        const dh = img.height * s;
+        // Desktop copy sits left, so a too-wide crop keeps the right of the frame
+        // where the subject is; the phone crop stays centred.
+        const x = narrow ? (cw - dw) / 2 : (cw - dw) * 0.65;
+        ctx.globalAlpha = alpha;
+        ctx.drawImage(img, x, (ch - dh) / 2, dw, dh);
+        ctx.globalAlpha = 1;
+      };
+
+      const cut = spec.cuts?.find((c) => index >= c - CUT_BLEND && index < c + CUT_BLEND);
+      if (cut === undefined) {
+        const img = getFrame(index);
+        if (img) paint(img, 1);
+        return;
+      }
+
+      const outgoing = getFrame(Math.min(index, cut - 1));
+      const incoming = getFrame(Math.max(index, cut));
+      if (!outgoing || !incoming) {
+        const img = outgoing ?? incoming ?? getFrame(index);
+        if (img) paint(img, 1);
+        return;
+      }
+      const t = (index - (cut - CUT_BLEND)) / (2 * CUT_BLEND - 1);
+      paint(outgoing, 1);
+      paint(incoming, t * t * (3 - 2 * t));
     },
     [getFrame, spec, narrow],
   );

@@ -10,6 +10,10 @@ export type TierSpec = {
   pattern: string;
   patternFallback: string;
   pad: number;
+  /** Frame indexes (0-based) where the master cuts to a different shot. The
+   *  renderer cross-dissolves across these so a hard cut does not read as a
+   *  dropped frame. Written by scripts/build-film.mjs. */
+  cuts?: number[];
 };
 
 export type FilmManifest = {

@@ -7,6 +7,7 @@
       "label": "Facade",
       "headline": "Architecture, written in stone.",
       "body": "Travertine and marble facades on ventilated systems — cut in our factory, fixed with millimetre joints.",
+      "short": "Ventilated stone facades, millimetre joints.",
       "from": 0.12,
       "to": 0.2
     },
@@ -16,6 +17,7 @@
       "label": "Threshold",
       "headline": "First impressions, cut to fit.",
       "body": "Nero Marquina cladding, marble-clad pivot doors and entrances that set the tone before you step inside.",
+      "short": "Nero Marquina cladding and marble-clad pivot doors.",
       "from": 0.2,
       "to": 0.33
     },
@@ -25,6 +27,7 @@
       "label": "Hall & living",
       "headline": "Book-matched. Slab by slab.",
       "body": "Feature walls whose veins mirror perfectly, floating staircases, emerald fireplaces and floors polished to reflect the light.",
+      "short": "Book-matched walls, floating stairs, mirrored veins.",
       "from": 0.33,
       "to": 0.56
     },
@@ -34,6 +37,7 @@
       "label": "Detail",
       "headline": "Every detail matters.",
       "body": "Waterfall islands, splashbacks, vanities and inlays — templated on site and finished by hand.",
+      "short": "Waterfall islands, vanities and inlays, finished by hand.",
       "from": 0.56,
       "to": 0.72
     },
@@ -43,6 +47,7 @@
       "label": "Horizon",
       "headline": "From factory to finished space.",
       "body": "Pool decks to penthouses — supplied, installed and handed over on time by one accountable team.",
+      "short": "Supplied, installed and handed over by one team.",
       "from": 0.72,
       "to": 0.93
     }

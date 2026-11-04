@@ -28,7 +28,7 @@ export default function ProjectsPage() {
         card={{ text: 'Your project could be next. Tell us what you are building.', href: '/contact', cta: 'Start a project ↗' }}
       />
 
-      <section className="u-shell py-20 md:py-28" aria-label="Project gallery">
+      <section className="u-shell py-14 md:py-28" aria-label="Project gallery">
         <ProjectGrid />
       </section>
 

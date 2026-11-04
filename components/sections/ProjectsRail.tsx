@@ -8,16 +8,16 @@ import { ArrowIcon } from '@/components/ui/icons';
 /** Recent work — an offset masonry of the client's own site photography. */
 export function ProjectsRail() {
   return (
-    <section aria-labelledby="work-title" className="u-shell py-24 md:py-36">
+    <section aria-labelledby="work-title" className="u-shell py-16 md:py-36">
       <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
         <Heading id="work-title" eyebrow="Recent work" lines={['Fresh from', '*our sites.*']} />
-        <Reveal className="max-w-md text-[var(--color-ink-2)]">
+        <Reveal x={26} delay={120} className="max-w-md text-[var(--color-ink-2)]">
           <p>Lobbies, vanities, floors and facades — fabricated in our factory and installed by our own teams across the Emirates.</p>
           <Link href="/projects" className="btn btn-dark mt-6">All projects <span className="btn-dot"><ArrowIcon /></span></Link>
         </Reveal>
       </div>
 
-      <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="mt-10 grid grid-cols-2 md:mt-14 gap-3 md:grid-cols-4">
         {WORK.map((p, i) => (
           <Reveal key={p.id} delay={(i % 4) * 70} className={i % 2 === 1 ? 'md:translate-y-16' : ''}>
             <div className="group">

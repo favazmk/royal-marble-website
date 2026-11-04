@@ -252,10 +252,12 @@ export function MaterialsStudio() {
   }
 
   return (
-    <section ref={sectionRef} aria-labelledby="mat-title" className="relative" style={{ height: `${N * 90 + 60}vh` }}>
+    <section ref={sectionRef} aria-labelledby="mat-title" className="studio relative" style={{ height: `calc(var(--studio-step) * ${N} + var(--studio-tail))` }}>
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         {/* Back layer: giant stone name, tinted by the current stone. */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+        {/* The giant stone name is a desktop-only backdrop: on a phone it sits
+            behind the slab and the cards and reads as noise, not typography. */}
+        <div className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex" aria-hidden="true">
           <div
             ref={wordRef}
             key={m.id}
@@ -279,11 +281,11 @@ export function MaterialsStudio() {
 
         {/* Front layer: title, card, swatches. */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="u-shell relative flex h-full flex-col justify-between pb-8 pt-28 md:pb-12">
+          <div className="u-shell relative flex h-full flex-col justify-between pb-6 pt-24 md:pb-12 md:pt-28">
             <div className="flex items-start justify-between gap-6">
               <div>
                 <p className="u-label text-[var(--color-ink-2)]">The collection</p>
-                <h2 id="mat-title" className="mt-3 max-w-[13ch] text-[length:var(--text-headline)]">
+                <h2 id="mat-title" className="mt-2 max-w-[13ch] text-[clamp(1.45rem,6.6vw,2rem)] md:mt-3 md:text-[length:var(--text-headline)]">
                   Every stone, <span className="u-gold-text">in your hands.</span>
                 </h2>
               </div>
@@ -292,13 +294,13 @@ export function MaterialsStudio() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div className="u-glass pointer-events-auto max-w-[24rem] rounded-[var(--radius-lg)] p-5 md:p-6" aria-live="polite">
+            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-4">
+              <div className="u-glass pointer-events-auto max-w-[24rem] rounded-[var(--radius-lg)] p-4 md:p-6" aria-live="polite">
                 <div className="flex items-center justify-between">
                   <span className="u-label text-[var(--color-ink-2)]">{m.family}</span>
                   <span className="u-label tabular-nums text-[var(--color-ink-3)]">{String(active + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span>
                 </div>
-                <h3 className="mt-3 text-[1.75rem]">{m.name}</h3>
+                <h3 className="mt-2 text-[1.3rem] md:mt-3 md:text-[1.75rem]">{m.name}</h3>
                 <p className="mt-2 hidden text-sm leading-relaxed text-[var(--color-ink-2)] sm:block">{m.body}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {m.uses.map((u) => (
@@ -307,7 +309,9 @@ export function MaterialsStudio() {
                 </div>
               </div>
 
-              <div className="pointer-events-auto flex items-center gap-2 self-start md:self-end">
+              {/* Five swatches plus the link have to clear a 320px phone, so they
+                  step up only once there is room for the larger target. */}
+              <div className="pointer-events-auto flex items-center gap-1.5 self-start min-[380px]:gap-2 md:self-end">
                 {MATERIALS.map((x, i) => (
                   <button
                     key={x.id}
@@ -315,14 +319,14 @@ export function MaterialsStudio() {
                     onClick={() => jumpTo(i)}
                     aria-label={`Show ${x.name}`}
                     aria-pressed={i === active}
-                    className="group relative h-12 w-12 overflow-hidden rounded-full border-2 transition-all duration-500 md:h-14 md:w-14"
+                    className="group relative h-10 w-10 overflow-hidden rounded-full border-2 transition-all duration-500 min-[380px]:h-12 min-[380px]:w-12 md:h-14 md:w-14"
                     style={{ borderColor: i === active ? 'var(--color-ink)' : 'transparent', transform: i === active ? 'scale(1.08)' : 'none' }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={x.texture} alt="" className="h-full w-full scale-150 object-cover transition-transform duration-700 group-hover:scale-[1.8]" loading="lazy" />
                   </button>
                 ))}
-                <Link href="/materials" className="icon-btn group ml-2 !h-12 !w-12 !bg-[var(--color-ink)] !text-white md:!h-14 md:!w-14" aria-label="All materials">
+                <Link href="/materials" className="icon-btn group ml-1 !h-10 !w-10 !bg-[var(--color-ink)] !text-white min-[380px]:ml-2 min-[380px]:!h-12 min-[380px]:!w-12 md:!h-14 md:!w-14" aria-label="All materials">
                   <ArrowIcon size={14} />
                 </Link>
               </div>

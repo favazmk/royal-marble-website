@@ -56,7 +56,7 @@ export default function MaterialsPage() {
       </nav>
 
       {/* Stone */}
-      <section id="stone" className="u-shell scroll-mt-28 py-20 md:py-28" aria-labelledby="families-title">
+      <section id="stone" className="u-shell scroll-mt-28 py-14 md:py-28" aria-labelledby="families-title">
         <Heading id="families-title" eyebrow="What we work with" lines={['Four families,', '*one standard.*']} />
         <div className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {MATERIAL_FAMILIES.map((f, i) => (
@@ -70,11 +70,11 @@ export default function MaterialsPage() {
 
         <div className="mt-20 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Heading eyebrow="Signature stones" lines={['Five stones,', '*five rooms.*']} />
-          <Reveal className="max-w-md text-[var(--color-ink-2)]">
+          <Reveal x={26} delay={120} className="max-w-md text-[var(--color-ink-2)]">
             <p>Each one shown where it performs best — and each one in our yard as real blocks you can walk around before you commit.</p>
           </Reveal>
         </div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-12 md:gap-4 lg:grid-cols-5">
           {MATERIALS.map((m, i) => (
             <Reveal key={m.id} delay={i * 60} className="[perspective:1000px]">
               <Tilt max={8}>
@@ -83,10 +83,10 @@ export default function MaterialsPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={m.photo} alt={`${m.name} in use — ${m.uses.join(', ').toLowerCase()}`} className="zoom-img aspect-[2/3] w-full object-cover" loading="lazy" />
                   </div>
-                  <figcaption className="p-4">
+                  <figcaption className="p-3 md:p-4">
                     <p className="u-label flex items-center gap-2 text-[var(--color-ink-3)]"><span className="h-2 w-2 rounded-full" style={{ background: m.tone }} />{m.family}</p>
-                    <h3 className="mt-1 text-[1.25rem]">{m.name}</h3>
-                    <p className="mt-1 text-xs text-[var(--color-ink-2)]">{m.uses.join(' · ')}</p>
+                    <h3 className="mt-1 text-[1.05rem] md:text-[1.25rem]">{m.name}</h3>
+                    <p className="mt-1 text-[0.7rem] text-[var(--color-ink-2)] md:text-xs">{m.uses.join(' · ')}</p>
                   </figcaption>
                 </figure>
               </Tilt>
@@ -130,11 +130,11 @@ export default function MaterialsPage() {
         </div>
       </section>
 
-      <section id="onsite" className="grain relative scroll-mt-20 bg-[var(--color-night)] py-24 text-[var(--color-paper)] md:py-32" aria-labelledby="onsite-title">
+      <section id="onsite" className="grain relative scroll-mt-20 bg-[var(--color-night)] py-16 text-[var(--color-paper)] md:py-32" aria-labelledby="onsite-title">
         <div className="u-shell relative">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <Heading id="onsite-title" eyebrow="On site" lines={['Panels, joints,', '*shadow lines.*']} light />
-            <Reveal className="max-w-md text-white/70">
+            <Reveal x={26} delay={120} className="max-w-md text-white/70">
               <p>Recent ventilated facades by our installation teams — large-format porcelain and stone, set out to the millimetre and fixed on concealed sub-frames.</p>
             </Reveal>
           </div>

@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { FACADE_SYSTEMS } from '@/content/data';
+import { Reveal } from '@/components/ui/Reveal';
 import { ArrowIcon } from '@/components/ui/icons';
 
 /**
@@ -23,7 +24,13 @@ export function FacadeRail() {
     if (!s || !t) return;
     gsap.registerPlugin(ScrollTrigger);
     const mm = gsap.matchMedia();
-    mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Pinned at every width now, so the track stops being a native swipe rail:
+      // one scroll gesture drives the whole division, phone included. gsap.set is
+      // reverted with the matchMedia context, which restores the rail for reduced
+      // motion and for anyone who resizes across it.
+      gsap.set(t, { width: 'max-content', overflow: 'visible', scrollSnapType: 'none' });
+      gsap.set(s.firstElementChild, { paddingTop: 0, paddingBottom: 0 });
       const distance = () => t.scrollWidth - window.innerWidth + 64;
       const tween = gsap.to(t, {
         x: () => -distance(),
@@ -43,10 +50,10 @@ export function FacadeRail() {
   return (
     <section ref={section} aria-labelledby="facade-title" className="relative overflow-hidden bg-[var(--color-night)] text-[var(--color-paper)] grain">
       <div className="flex min-h-[100svh] flex-col justify-center py-24 lg:py-0">
-        <div ref={track} className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-[clamp(16px,3.2vw,44px)] lg:w-max lg:snap-none lg:overflow-visible">
+        <div ref={track} className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-[clamp(16px,3.2vw,44px)]">
           {/* Lead panel */}
           <div className="flex w-[86vw] shrink-0 snap-start flex-col justify-center gap-10 sm:w-[60vw] lg:w-[34rem] lg:justify-between lg:gap-0 lg:pr-10">
-            <div>
+            <Reveal>
               <p className="u-label flex items-center gap-3 text-[var(--color-gold-2)]"><span className="h-px w-8 bg-current opacity-60" />Facade division</p>
               <h2 id="facade-title" className="mt-5 text-[length:var(--text-headline)]">
                 Ventilated facades, <span className="u-gold-text">engineered to last.</span>
@@ -55,11 +62,11 @@ export function FacadeRail() {
                 Four Rockany® fixing systems for porcelain, terracotta, natural stone and fibre-cement cladding — on aluminium
                 sub-frames with stainless-steel fasteners. Designed, supplied and installed by one team.
               </p>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-3">
+            </Reveal>
+            <Reveal delay={140} className="mt-10 flex flex-wrap gap-3">
               <Link href="/materials#facades" className="btn btn-light">Facade systems <span className="btn-dot"><ArrowIcon /></span></Link>
               <span className="flex items-center gap-2 text-sm text-white/50"><span className="lg:hidden">Swipe</span><span className="hidden lg:inline">Scroll</span> <span aria-hidden="true">→</span></span>
-            </div>
+            </Reveal>
           </div>
 
           {FACADE_SYSTEMS.map((f, i) => (

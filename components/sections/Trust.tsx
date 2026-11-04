@@ -10,17 +10,17 @@ import { ArrowIcon, StarIcon } from '@/components/ui/icons';
 export function Trust() {
   const r = REVIEWS[0];
   return (
-    <section aria-labelledby="trust-title" className="py-24 md:py-32">
+    <section aria-labelledby="trust-title" className="py-16 md:py-32">
       <div className="u-shell">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
           <Heading id="trust-title" eyebrow="Quality you can verify" lines={['Certified.', '*Accountable.*']} />
-          <Reveal className="text-[var(--color-ink-2)] lg:max-w-lg lg:justify-self-end">
+          <Reveal x={26} delay={120} className="text-[var(--color-ink-2)] lg:max-w-lg lg:justify-self-end">
             Quality, environmental and safety systems certified to international standards, fully insured, and recommended by
             Cosentino as a fabricator and installer.
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {CERTIFICATIONS.map((c, i) => (
             <Reveal key={c.code} delay={i * 70} className="lift u-card group relative overflow-hidden p-6">
               <span aria-hidden="true" className="absolute -right-6 -top-6 h-24 w-24 rounded-full border border-[var(--color-line)] transition-transform duration-700 group-hover:scale-125" />
@@ -56,7 +56,7 @@ export function Trust() {
         </div>
       </div>
 
-      <div className="mt-20 overflow-hidden border-y border-[var(--color-line)] py-6" aria-label="Stones we cut and install">
+      <div className="mt-14 overflow-hidden border-y md:mt-20 border-[var(--color-line)] py-6" aria-label="Stones we cut and install">
         <p className="u-shell u-label mb-5 text-[var(--color-ink-3)]">Stones we cut and install</p>
         <div className="marquee gap-14 pr-14">
           {[...STONES, ...STONES].map((t, i) => (

@@ -43,7 +43,7 @@ export default function ServicesPage() {
         card={{ text: 'Send your drawings and quantities — we reply with a quotation and programme.', href: '/contact', cta: 'Request a quotation ↗' }}
       />
 
-      <section className="u-shell py-24 md:py-32" aria-labelledby="svc-list">
+      <section className="u-shell py-16 md:py-32" aria-labelledby="svc-list">
         <Heading eyebrow="Six disciplines" lines={['Cut in our factory,', '*fixed by our masons.*']} />
         <h2 id="svc-list" className="sr-only">Our services</h2>
         <div className="mt-14 space-y-3">
@@ -53,7 +53,7 @@ export default function ServicesPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={s.photo} alt={`${s.title} by Royal Marble`} className="h-full w-full object-cover" loading="lazy" />
               </Parallax>
-              <Reveal className="flex flex-col p-3 md:p-8">
+              <Reveal x={i % 2 ? -26 : 26} delay={100} className="flex flex-col p-3 md:p-8">
                 <span className="text-[3rem] font-extralight leading-none tracking-[-0.04em] text-[var(--color-ink-3)] [font-family:var(--font-outfit)]">0{i + 1}</span>
                 <h3 className="mt-6 text-[clamp(1.8rem,3vw,2.6rem)]">{s.title}</h3>
                 <p className="mt-4 max-w-lg text-[var(--color-ink-2)]">{s.body}</p>

@@ -209,6 +209,39 @@ async function encodeTier({ input, tier, targetFrames, targetWidth, crop, delogo
   };
 }
 
+/**
+ * Shot changes in the master, as indexes into the emitted frame sequence.
+ *
+ * A hard cut that survives the resample arrives in the browser as a one-frame
+ * jump and reads as a dropped frame, not an edit — so the renderer needs to know
+ * where they are to dissolve across them (see components/film/ScrollFilm).
+ * ffmpeg's scene score is the difference between consecutive frames; 0.18 is
+ * well above camera movement in a drone shot and well below a true cut.
+ */
+async function detectCuts(input, src, targetFrames) {
+  let stdout = '';
+  try {
+    ({ stdout } = await run('ffmpeg', [
+      '-hide_banner', '-v', 'error',
+      '-i', input,
+      '-vf', "select='gt(scene,0.18)',metadata=print:file=-",
+      '-an', '-f', 'null', '-',
+    ], { maxBuffer: 1 << 22 }));
+  } catch {
+    // Detection is an optimisation, never a build failure.
+    return [];
+  }
+  const seconds = [...stdout.matchAll(/pts_time:([\d.]+)/g)].map((m) => Number(m[1]));
+  const cuts = new Set();
+  for (const t of seconds) {
+    const frame = Math.round((t / src.duration) * targetFrames);
+    // Neither end can be dissolved, and consecutive source frames of one cut
+    // collapse onto the same emitted frame.
+    if (frame > 4 && frame < targetFrames - 4) cuts.add(frame);
+  }
+  return [...cuts].sort((a, b) => a - b);
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const input = args.in ?? 'assets/masters/desktop-home.mp4';
@@ -269,6 +302,9 @@ async function main() {
   }
   manifest.tiers ??= {};
 
+  const cuts = await detectCuts(input, src, result.frameCount);
+  if (cuts.length) console.log(`  shot changes at frame ${cuts.join(', ')} — the renderer dissolves across them`);
+
   manifest.tiers[tier] = {
     frameCount: result.frameCount,
     width: result.width,
@@ -277,6 +313,7 @@ async function main() {
     pattern: `/film/${tier}/{n}.avif`,
     patternFallback: `/film/${tier}/{n}.webp`,
     pad: 4,
+    cuts,
   };
   manifest.source = {
     duration: src.duration,

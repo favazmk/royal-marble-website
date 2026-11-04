@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 import { PROJECTS, type ProjectCategory } from '@/content/data';
+import { Reveal } from '@/components/ui/Reveal';
 
 const CATS: ('All' | ProjectCategory)[] = ['All', 'High-rise', 'Residential', 'Hospitality', 'Commercial', 'Public'];
 
@@ -14,8 +15,12 @@ export function ProjectGrid() {
   const grid = useRef<HTMLUListElement>(null);
   const list = cat === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === cat);
 
-  // Re-flow animation when the filter changes.
+  // Re-flow animation when the filter changes. Not on first render: the cards
+  // enter on scroll there (Reveal below), and running both would show the grid
+  // before the visitor has reached it.
+  const firstRender = useRef(true);
   useEffect(() => {
+    if (firstRender.current) { firstRender.current = false; return; }
     if (!grid.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.fromTo(grid.current.children, { opacity: 0, y: 24, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'expo.out', stagger: 0.04, overwrite: true });
   }, [cat]);
@@ -60,26 +65,26 @@ export function ProjectGrid() {
         ))}
       </div>
 
-      <ul ref={grid} className="mt-10 grid grid-cols-1 gap-x-3 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((p) => {
+      <ul ref={grid} className="mt-8 grid grid-cols-2 gap-x-3 gap-y-6 md:mt-10 md:gap-y-8 lg:grid-cols-3">
+        {list.map((p, i) => {
           const index = PROJECTS.indexOf(p);
           return (
-            <li key={p.id} id={p.id} className="scroll-mt-28">
+            <Reveal as="li" key={p.id} id={p.id} delay={(i % 3) * 80} className="scroll-mt-28">
               <button type="button" onClick={() => setOpen(index)} className="group block w-full text-left" aria-label={`Open ${p.name}`}>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-card)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.image} alt={`${p.name}, ${p.location} — ${p.scope}`} className="zoom-img absolute inset-0 h-full w-full object-cover" loading="lazy" />
                   <span className="u-pill u-glass absolute left-3 top-3 !text-[0.68rem]">{p.category}</span>
                 </div>
-                <div className="mt-3 flex items-start justify-between gap-3">
+                <div className="mt-2.5 flex items-start justify-between gap-2 md:mt-3 md:gap-3">
                   <div>
-                    <h2 className="text-[1.3rem] leading-tight">{p.name}</h2>
-                    <p className="text-sm text-[var(--color-ink-2)]">{p.location} · {p.scope}</p>
+                    <h2 className="text-[1.02rem] leading-tight md:text-[1.3rem]">{p.name}</h2>
+                    <p className="text-[0.76rem] text-[var(--color-ink-2)] md:text-sm">{p.location} · {p.scope}</p>
                   </div>
                   <span className="mt-1 text-xl text-[var(--color-ink-3)] transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">+</span>
                 </div>
               </button>
-            </li>
+            </Reveal>
           );
         })}
       </ul>

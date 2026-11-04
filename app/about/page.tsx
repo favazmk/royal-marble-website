@@ -22,6 +22,13 @@ const VALUES = [
   { icon: 'leaf', tint: '#dfe7e0', accent: '#16392b', t: 'Sustainability', b: 'Lasting trust with our customers, suppliers, employees and the community we serve — and stone that lasts generations.' },
 ];
 
+const MISSION = [
+  'Work built on long-term partnerships with our clients.',
+  'Enrich the market’s understanding of the marble art business and foster an innovative, creative culture.',
+  'Promote prosperity and a good working environment, and keep developing our team’s skills.',
+  'Quality control in both supply and application, with the best available resources and latest techniques.',
+];
+
 const PEOPLE = ['General management & administration', 'Technical & project management', 'Procurement & sales', 'QA/QC & HSE', 'Production & factory', 'Installation teams'];
 
 const FACTORY = [
@@ -45,10 +52,10 @@ export default function AboutPage() {
         card={{ text: 'Meet the team behind the stone — visit our factory and showroom in Umm Al Quwain.', href: '/contact', cta: 'Book a visit ↗' }}
       />
 
-      <section className="u-shell pt-24 md:pt-32" aria-labelledby="factory-title">
+      <section className="u-shell pt-16 md:pt-32" aria-labelledby="factory-title">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <Heading id="factory-title" eyebrow="Inside the factory" lines={['Umm Al Quwain.', '*Where the stone is made.*']} />
-          <Reveal className="max-w-md text-[var(--color-ink-2)]">
+          <Reveal x={26} delay={120} className="max-w-md text-[var(--color-ink-2)]">
             <p>Slab yard, bridge saws, CNC and waterjet, edge-polishing lines and hand finishing — all on one site, run by our own team.</p>
           </Reveal>
         </div>
@@ -64,7 +71,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="u-shell py-24 md:py-32" aria-labelledby="story-title">
+      <section className="u-shell py-16 md:py-32" aria-labelledby="story-title">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Parallax className="aspect-[4/5] rounded-[var(--radius-xl)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -72,7 +79,7 @@ export default function AboutPage() {
           </Parallax>
           <div>
             <Heading id="story-title" eyebrow="Our approach" lines={['Everything in-house.', '*Nothing left to chance.*']} />
-            <Reveal className="mt-8 space-y-5 text-[var(--color-ink-2)]">
+            <Reveal x={26} delay={140} className="mt-8 space-y-5 text-[var(--color-ink-2)]">
               <p>
                 Royal Marble was established in 2019 to complement and support its sister company, Al Jawda Wal Eltizam Technical
                 Services — adding the factory, machinery and self-contained capability behind master-quality cladding, flooring,
@@ -92,7 +99,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--color-night)] py-24 text-[var(--color-paper)] md:py-32 grain relative" aria-labelledby="vision-title">
+      <section className="bg-[var(--color-night)] py-16 text-[var(--color-paper)] md:py-32 grain relative" aria-labelledby="vision-title">
         <div className="u-shell relative grid gap-12 lg:grid-cols-[0.35fr_1fr]">
           <p className="u-label text-[var(--color-gold-2)]" id="vision-title">Vision & mission</p>
           <div>
@@ -101,16 +108,15 @@ export default function AboutPage() {
               text="To be the leading company in the region for state-of-the-art work with the look, feel and sustainability of *marble* — unparalleled quality, delivered on time, through effective and innovative solutions."
             />
             <ul className="mt-14 grid gap-6 text-white/70 md:grid-cols-2">
-              <li>Work built on long-term partnerships with our clients.</li>
-              <li>Enrich the market&rsquo;s understanding of the marble art business and foster an innovative, creative culture.</li>
-              <li>Promote prosperity and a good working environment, and keep developing our team&rsquo;s skills.</li>
-              <li>Quality control in both supply and application, with the best available resources and latest techniques.</li>
+              {MISSION.map((m, i) => (
+                <Reveal as="li" key={m} delay={(i % 2) * 90}>{m}</Reveal>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="u-shell py-24 md:py-32" aria-labelledby="values-title">
+      <section className="u-shell py-16 md:py-32" aria-labelledby="values-title">
         <Heading id="values-title" eyebrow="Quality management policy" lines={['Quality,', '*always prevails.*']} />
         <div className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {VALUES.map((v, i) => (

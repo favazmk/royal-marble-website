@@ -5,12 +5,12 @@ import { PlusIcon } from '@/components/ui/icons';
 /** Native <details> accordion: works without JS, readable by crawlers. */
 export function Faq({ items, title = ['Questions,', '*answered.*'] }: { items: { q: string; a: string }[]; title?: string[] }) {
   return (
-    <section aria-labelledby="faq-title" className="u-shell py-16 md:py-24">
+    <section aria-labelledby="faq-title" className="u-shell py-12 md:py-24">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <Heading id="faq-title" eyebrow="FAQ" lines={title} />
         <div className="divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
           {items.map((f, i) => (
-            <Reveal key={f.q} delay={i * 40}>
+            <Reveal key={f.q} delay={Math.min(i, 4) * 70}>
               <details className="group py-5 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-[1.1rem] font-medium md:text-[1.2rem]">
                   {f.q}

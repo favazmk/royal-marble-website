@@ -8,6 +8,8 @@ export type Chapter = {
   label: string;
   headline: string;
   body: string;
+  /** Phone copy: the same point in one line, so the card never covers the film. */
+  short?: string;
   from: number;
   to: number;
 };
@@ -85,22 +87,29 @@ export function FilmChapters({
 
   return (
     <div className="pointer-events-none absolute inset-0 z-[2]">
-      <div className={`u-shell relative flex h-full ${low ? 'items-end pb-28' : 'items-center'}`}>
+      <div className={`u-shell relative flex h-full ${low ? 'items-end pb-20 md:pb-28' : 'items-center'}`}>
         <div className={`relative w-full ${low ? 'max-w-none' : 'max-w-[30rem]'}`}>
           {chapters.map((c, i) => (
             <article
               key={c.id}
               ref={(el) => { cards.current[i] = el; }}
-              className={`u-glass-film absolute inset-x-0 rounded-[var(--radius-xl)] p-6 text-[var(--color-paper)] md:p-8 ${low ? 'bottom-0' : '-translate-y-1/2 top-0'}`}
+              className={`u-glass-film absolute inset-x-0 rounded-[var(--radius-xl)] p-4 text-[var(--color-paper)] sm:p-6 md:p-8 ${low ? 'bottom-0' : '-translate-y-1/2 top-0'}`}
               style={{ opacity: 0, visibility: 'hidden', willChange: 'transform, opacity, filter' }}
             >
               <div className="flex items-center justify-between">
                 <span className="u-label text-[var(--color-gold-2)]">{c.index} — {c.label}</span>
                 <span className="u-label tabular-nums text-white/60">{c.index} / {String(chapters.length).padStart(2, '0')}</span>
               </div>
-              <span aria-hidden="true" className="mt-4 block h-px origin-left bg-gradient-to-r from-[var(--color-gold-2)] to-transparent" style={{ transform: 'scaleX(var(--arrive, 0))' }} />
-              <h2 className="mt-4 text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.04]">{c.headline}</h2>
-              <p className="mt-4 max-w-[26rem] text-[0.95rem] leading-relaxed text-white/90" style={{ transform: 'translate3d(0, var(--trail, 0px), 0)' }}>{c.body}</p>
+              <span aria-hidden="true" className="mt-3 block h-px origin-left bg-gradient-to-r from-[var(--color-gold-2)] to-transparent md:mt-4" style={{ transform: 'scaleX(var(--arrive, 0))' }} />
+              <h2 className="mt-3 text-[clamp(1.5rem,6.4vw,2.9rem)] font-light leading-[1.06] md:mt-4 md:leading-[1.04]">{c.headline}</h2>
+              <p className="mt-2 max-w-[26rem] text-[0.88rem] leading-relaxed text-white/90 md:mt-4 md:text-[0.95rem]" style={{ transform: 'translate3d(0, var(--trail, 0px), 0)' }}>
+                {c.short ? (
+                  <>
+                    <span className="sm:hidden">{c.short}</span>
+                    <span className="hidden sm:inline">{c.body}</span>
+                  </>
+                ) : c.body}
+              </p>
             </article>
           ))}
         </div>
