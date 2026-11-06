@@ -35,7 +35,7 @@ export function FacadeRail() {
       const tween = gsap.to(t, {
         x: () => -distance(),
         ease: 'none',
-        scrollTrigger: { trigger: s, start: 'top top', end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true },
+        scrollTrigger: { trigger: s, start: 'top top', end: () => `+=${distance()}`, pin: true, scrub: 0.35, invalidateOnRefresh: true },
       });
       t.querySelectorAll<HTMLElement>('[data-render]').forEach((img) => {
         gsap.fromTo(img, { rotate: -6, scale: 0.9 }, {

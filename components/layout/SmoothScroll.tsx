@@ -22,7 +22,7 @@ export function SmoothScroll() {
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis({
-      duration: 1.05,
+      duration: 0.7,
       easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
       smoothWheel: true,
       // Touch devices have their own momentum; overriding it feels broken.

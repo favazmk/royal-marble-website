@@ -155,22 +155,22 @@ img { max-width: 100%; height: auto; }
 .group:hover .icon-btn { transform: rotate(-45deg); background: var(--color-gold-2); }
 
 /* Image zoom inside rounded cards */
-.zoom-img { transition: transform 1.2s var(--ease-out); }
+.zoom-img { transition: transform 0.8s var(--ease-out); }
 .group:hover .zoom-img { transform: scale(1.06); }
 
 /* Reveal (IntersectionObserver driven, see components/ui/Reveal) */
 /* The hidden state only applies where scripting is enabled, so a page whose
    bundle never runs is never left blank. --rv-x / --rv-y are set per element
    by the component; --rv-s shortens every travel on phones. */
-.reveal { transition: opacity 0.9s var(--ease-out), transform 1.1s var(--ease-out); }
+.reveal { transition: opacity 0.55s var(--ease-out), transform 0.7s var(--ease-out); }
 @media (scripting: enabled) {
   .reveal { opacity: 0; transform: translate3d(calc(var(--rv-x, 0px) * var(--rv-s, 1)), calc(var(--rv-y, 30px) * var(--rv-s, 1)), 0); }
 }
 .reveal[data-revealed='true'] { opacity: 1; transform: none; }
-@media (max-width: 767px) { .reveal { --rv-s: 0.58; transition-duration: 0.72s, 0.86s; } }
+@media (max-width: 767px) { .reveal { --rv-s: 0.58; transition-duration: 0.45s, 0.55s; } }
 /* Photos settle into their frame as the card reveals. `scale`, not `transform`,
    so it composes with the hover zoom above instead of fighting it. */
-.reveal .zoom-img { scale: 1.08; transition: transform 1.2s var(--ease-out), scale 1.5s var(--ease-out); }
+.reveal .zoom-img { scale: 1.08; transition: transform 0.8s var(--ease-out), scale 0.9s var(--ease-out); }
 .reveal[data-revealed='true'] .zoom-img { scale: 1; }
 
 /* Film chapter card: clear glass so the film reads through it. Legibility comes
@@ -265,8 +265,8 @@ img { max-width: 100%; height: auto; }
 .lift { transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out); }
 .lift:hover { transform: translate3d(0, -6px, 0); box-shadow: 0 30px 60px -36px rgb(38 27 22 / 0.55); }
 /* On a Reveal, keep the fade and only shorten the transform for the hover. */
-.reveal.lift { transition: opacity 0.9s var(--ease-out), transform 1.1s var(--ease-out), box-shadow 0.6s var(--ease-out); }
-.reveal.lift[data-revealed='true'] { transition: opacity 0.9s var(--ease-out), transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out); }
+.reveal.lift { transition: opacity 0.55s var(--ease-out), transform 0.7s var(--ease-out), box-shadow 0.6s var(--ease-out); }
+.reveal.lift[data-revealed='true'] { transition: opacity 0.55s var(--ease-out), transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out); }
 
 /* Pointer sheen on photo cards (position set by components/ui/PointerSheen) */
 .sheen { position: relative; }

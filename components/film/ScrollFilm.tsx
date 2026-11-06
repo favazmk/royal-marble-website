@@ -44,7 +44,7 @@ function chooseTier(manifest: FilmManifest): { key: string; spec: TierSpec } {
   return { key, spec: tiers[key] };
 }
 
-export function ScrollFilm({ manifest, chapters, scrollLength = 6 }: Props) {
+export function ScrollFilm({ manifest, chapters, scrollLength = 4 }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -192,7 +192,7 @@ export function ScrollFilm({ manifest, chapters, scrollLength = 6 }: Props) {
         end: `+=${scrollLength * 100}%`,
         pin: true,
         pinSpacing: true,
-        scrub: 0.6,
+        scrub: 0.35,
         invalidateOnRefresh: true,
         // This pin is created after the sections below it have mounted their
         // own triggers (it waits for the tier). Refresh it first and re-measure

@@ -18,7 +18,7 @@ export function Counter({ to, prefix = '', suffix = '', className = '' }: { to: 
     const io = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
       io.disconnect();
-      gsap.to(obj, { v: to, duration: 1.8, ease: 'expo.out', onUpdate: () => { el.textContent = `${prefix}${Math.round(obj.v)}${suffix}`; } });
+      gsap.to(obj, { v: to, duration: 1.1, ease: 'expo.out', onUpdate: () => { el.textContent = `${prefix}${Math.round(obj.v)}${suffix}`; } });
     }, { threshold: 0.4 });
     io.observe(el);
     return () => io.disconnect();
@@ -40,7 +40,7 @@ export function ScrubText({ text, className = '' }: { text: string; className?: 
     const ctx = gsap.context(() => {
       gsap.fromTo(words, { opacity: 0.16 }, {
         opacity: 1, ease: 'none', stagger: 0.08,
-        scrollTrigger: { trigger: el, start: 'top 82%', end: 'bottom 45%', scrub: 0.6 },
+        scrollTrigger: { trigger: el, start: 'top 82%', end: 'bottom 45%', scrub: 0.4 },
       });
     }, el);
     return () => ctx.revert();

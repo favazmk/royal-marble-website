@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <ScrollFilm manifest={manifest as FilmManifest} chapters={chapterData.chapters} scrollLength={6} />
+      <ScrollFilm manifest={manifest as FilmManifest} chapters={chapterData.chapters} scrollLength={4} />
       <Intro />
       <MaterialsStudio />
       <ServicesBento />
