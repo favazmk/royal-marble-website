@@ -49,18 +49,18 @@ export default function ServicesPage() {
         <div className="mt-14 space-y-3">
           {SERVICES.map((s, i) => (
             <article key={s.id} id={s.id} className="u-card grid scroll-mt-28 gap-6 overflow-hidden p-3 md:grid-cols-2 md:p-4">
-              <Parallax className={`aspect-[4/3] rounded-[var(--radius-lg)] md:aspect-auto md:min-h-[26rem] ${i % 2 ? 'md:order-2' : ''}`}>
+              <Parallax className={`relative aspect-[4/3] rounded-[var(--radius-lg)] md:aspect-auto md:min-h-[26rem] ${i % 2 ? 'md:order-2' : ''}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={s.photo} alt={`${s.title} by Royal Marble`} className="h-full w-full object-cover" loading="lazy" />
+                <img src={s.photo} alt={`${s.title} by Royal Marble`} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               </Parallax>
-              <Reveal x={i % 2 ? -26 : 26} delay={100} className="flex flex-col p-3 md:p-8">
+              <Reveal x={i % 2 ? -26 : 26} delay={100} className="flex flex-col justify-center p-3 md:p-8">
                 <span className="text-[3rem] font-extralight leading-none tracking-[-0.04em] text-[var(--color-ink-3)] [font-family:var(--font-outfit)]">0{i + 1}</span>
                 <h3 className="mt-6 text-[clamp(1.8rem,3vw,2.6rem)]">{s.title}</h3>
                 <p className="mt-4 max-w-lg text-[var(--color-ink-2)]">{s.body}</p>
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {s.points.map((p) => <li key={p} className="u-pill bg-[var(--color-ground)]">{p}</li>)}
                 </ul>
-                <Link href="/contact" className="mt-auto inline-flex items-center gap-3 pt-8 text-sm font-semibold">
+                <Link href="/contact" className="inline-flex items-center gap-3 pt-8 text-sm font-semibold">
                   Discuss {s.title.toLowerCase()} <span className="icon-btn !h-9 !w-9 !bg-[var(--color-ink)] !text-white"><ArrowIcon /></span>
                 </Link>
               </Reveal>

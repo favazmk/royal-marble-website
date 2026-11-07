@@ -70,6 +70,12 @@ export function Footer() {
         <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/45 md:flex-row">
           <p>© {year} {SITE.legalName}. Industrial licence LIC-IND-31380, Umm Al Quwain.</p>
           <p>Marble · Granite · Quartz · Porcelain · Natural stone · Ventilated facades</p>
+          <p>
+            Site by{' '}
+            <a href="https://webbranding.ae" target="_blank" rel="noopener" className="font-semibold text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-[#a855f7] hover:decoration-[#a855f7]">
+              Web Branding
+            </a>
+          </p>
         </div>
       </div>
     </footer>

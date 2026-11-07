@@ -226,7 +226,6 @@ export const PROJECTS: Project[] = [
   { id: 'palm-jumeirah', name: 'Palm Jumeirah Villa', location: 'Palm Jumeirah, Dubai', category: 'Residential', scope: 'Porcelain & stone facade', image: '/img/projects/palm-jumeirah-villa.webp' },
   { id: 'raha-beach', name: 'Raha Beach', location: 'Abu Dhabi', category: 'Residential', scope: 'Facade cladding', image: '/img/projects/raha-beach.webp' },
   { id: 'red-sea', name: 'Red Sea Project', location: 'Saudi Arabia', category: 'Hospitality', scope: 'Stone decking & pool surrounds', image: '/img/projects/redsea-1.webp' },
-  { id: 'al-ansari', name: 'Al Ansari Tower', location: 'UAE', category: 'High-rise', scope: 'Facade cladding', image: '/img/projects/ansari-1.webp' },
   { id: 'shcc', name: 'Sharjah Healthcare City', location: 'Sharjah', category: 'Public', scope: 'Facade cladding', image: '/img/projects/shcc-1.webp' },
   { id: 'gate-avenue', name: 'Gate Avenue', location: 'DIFC, Dubai', category: 'Commercial', scope: 'Timber-look porcelain cladding', image: '/img/projects/gate-avenue-1.webp' },
   { id: 'utmost', name: 'Utmost Showroom', location: 'Dubai', category: 'Commercial', scope: 'Showroom cladding', image: '/img/projects/utmost-1.webp' },
