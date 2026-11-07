@@ -6,6 +6,7 @@ import { FAQ } from '@/content/data';
 import { ScrollFilm } from '@/components/film/ScrollFilm';
 import type { FilmManifest } from '@/components/film/useFrameLoader';
 import { Intro } from '@/components/sections/Intro';
+import { Manifesto } from '@/components/sections/Manifesto';
 import { MaterialsStudio } from '@/components/sections/MaterialsStudio';
 import { ServicesBento } from '@/components/sections/ServicesBento';
 import { FacadeRail } from '@/components/sections/FacadeRail';
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <ScrollFilm manifest={manifest as FilmManifest} chapters={chapterData.chapters} scrollLength={4} />
       <Intro />
+      <Manifesto />
       <MaterialsStudio />
       <ServicesBento />
       <FacadeRail />
