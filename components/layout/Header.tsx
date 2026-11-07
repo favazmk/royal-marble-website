@@ -52,13 +52,9 @@ export function Header() {
             aria-label="Main"
             className="u-glass flex items-center justify-between gap-4 rounded-full py-2 pl-3 pr-2 shadow-[0_10px_40px_-20px_rgb(38_27_22/0.45)] md:pl-4"
           >
-            <Link href="/" className="flex items-center gap-3" aria-label="Royal Marble — home">
+            <Link href="/" className="flex items-center" aria-label="Royal Marble — home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/mark-ink.webp" alt="" width={44} height={30} className="h-[26px] w-auto md:h-[30px]" />
-              <span className="leading-none">
-                <span className="block text-[0.98rem] font-medium tracking-[-0.01em] [font-family:var(--font-outfit)]">Royal Marble</span>
-                <span className="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-ink-2)]">Factory · UAE</span>
-              </span>
+              <img src="/brand/logo-gold.webp" alt="Royal Marble" width={600} height={501} className="h-[46px] w-auto md:h-[54px]" />
             </Link>
 
             <ul className="hidden items-center gap-1 lg:flex">
