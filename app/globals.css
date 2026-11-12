@@ -167,6 +167,26 @@ img { max-width: 100%; height: auto; }
   .reveal { opacity: 0; transform: translate3d(calc(var(--rv-x, 0px) * var(--rv-s, 1)), calc(var(--rv-y, 30px) * var(--rv-s, 1)), 0); }
 }
 .reveal[data-revealed='true'] { opacity: 1; transform: none; }
+/* Closing: a block that scrolls up past the header fades out lifting upward,
+   then re-enters from above if the reader scrolls back. */
+@media (scripting: enabled) {
+  .reveal[data-revealed='past'] { transform: translate3d(0, calc(var(--rv-y, 30px) * var(--rv-s, 1) * -0.7), 0); }
+}
+
+/* Grid cards (home intro/stats/about values, materials, contact…): lift, deepen
+   the shadow, draw a gold hairline and warm the number label on hover. */
+@media (hover: hover) {
+  .grid > .reveal.u-card {
+    transition: opacity 0.55s var(--ease-out), transform 0.7s var(--ease-out), box-shadow 0.5s var(--ease-out), background-color 0.5s var(--ease-out);
+  }
+  .grid > .reveal.u-card[data-revealed='true']:hover {
+    transform: translate3d(0, -6px, 0);
+    box-shadow: 0 30px 60px -36px rgb(38 27 22 / 0.5), inset 0 0 0 1px rgb(184 146 82 / 0.35);
+    transition-duration: 0.55s, 0.5s, 0.5s, 0.5s;
+  }
+  .grid > .reveal.u-card .u-label { transition: color 0.4s, letter-spacing 0.5s var(--ease-out); }
+  .grid > .reveal.u-card:hover .u-label { color: var(--color-gold); letter-spacing: 0.24em; }
+}
 @media (max-width: 767px) { .reveal { --rv-s: 0.58; transition-duration: 0.45s, 0.55s; } }
 /* Photos settle into their frame as the card reveals. `scale`, not `transform`,
    so it composes with the hover zoom above instead of fighting it. */

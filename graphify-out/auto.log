@@ -20,3 +20,65 @@ Re-extracting code files in . (no LLM needed)...
 [graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
 Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
 Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Wed Nov  4 18:59:56 2026 ===
+[graphify watch] community set changed since labeling (15 saved labels, 17 communities now; renamed 7 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+400 more)
+[graphify] backed up curated graph (5 files) -> 2026-11-04/
+[graphify watch] Rebuilt: 294 nodes, 655 edges, 17 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Fri Nov  6 11:06:45 2026 ===
+[graphify watch] community set changed since labeling (17 saved labels, 17 communities now; renamed 7 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+400 more)
+[graphify] backed up curated graph (5 files) -> 2026-11-06/
+[graphify watch] Rebuilt: 298 nodes, 667 edges, 17 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Fri Nov  6 12:02:14 2026 ===
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+400 more)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Sat Nov  7 15:22:52 2026 ===
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+400 more)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Tue Nov 10 13:11:55 2026 ===
+[graphify watch] community set changed since labeling (17 saved labels, 16 communities now; renamed 7 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+400 more)
+[graphify] backed up curated graph (5 files) -> 2026-11-10/
+[graphify watch] Rebuilt: 301 nodes, 679 edges, 16 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Tue Nov 10 19:35:47 2026 ===
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 406 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+400 more)
+[graphify] backed up curated graph (5 files) -> 2026-11-10/
+[graphify watch] Rebuilt: 301 nodes, 679 edges, 16 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
+
+=== Thu Nov 12 14:55:53 2026 ===
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 358 file(s) not classified (no supported extension or shebang), skipped: .gitignore, .vercelignore, 0001.avif, 0002.avif, 0003.avif, 0004.avif (+352 more)
+[graphify] backed up curated graph (5 files) -> 2026-11-12/
+[graphify watch] Rebuilt: 301 nodes, 679 edges, 16 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

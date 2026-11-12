@@ -48,7 +48,7 @@ export default function AboutPage() {
         intro="Royal Marble Factory LLC supplies, fabricates and installs marble and natural stone across the UAE — from our own factory in Umm Al Quwain, since 2019."
         mega="since 2019"
         image="/img/services/block.webp"
-        alt="A rough block of Calacatta marble lit by a shaft of warm light"
+        alt="The Royal Marble fabrication floor in Umm Al Quwain, with the team at work between the cutting lines"
         card={{ text: 'Meet the team behind the stone — visit our factory and showroom in Umm Al Quwain.', href: '/contact', cta: 'Book a visit ↗' }}
       />
 

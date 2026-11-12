@@ -6,7 +6,7 @@ import { PlusIcon } from '@/components/ui/icons';
 export function Process({ title = 'A transparent process, start to finish.' }: { title?: string }) {
   return (
     <section aria-labelledby="process-title" className="u-shell py-12 md:py-20">
-      <div className="u-card p-5 md:p-10 lg:p-14">
+      <Reveal className="u-card p-5 md:p-10 lg:p-14">
         <div className="flex items-start justify-between gap-6">
           <Reveal>
             <h2 id="process-title" className="max-w-[18ch] text-[length:var(--text-headline)]">{title}</h2>
@@ -17,7 +17,7 @@ export function Process({ title = 'A transparent process, start to finish.' }: {
         <ol className="mt-10 grid gap-3 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
           {PROCESS.map((s, i) => (
             <Reveal as="li" key={s.n} delay={(i % 3) * 90} className="relative">
-              <div className="group h-full rounded-[var(--radius-lg)] bg-[var(--color-paper)] p-6 transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgb(38_27_22/0.45)]">
+              <div className="group h-full rounded-[var(--radius-lg)] bg-[var(--color-paper)] p-6 transition-[box-shadow,transform] duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-30px_rgb(38_27_22/0.45)]">
                 <div className="flex items-start justify-between gap-4 border-b border-[var(--color-line)] pb-4">
                   <h3 className="max-w-[14ch] text-[1.2rem] font-normal leading-tight">{s.title}</h3>
                   <span className="text-[2.6rem] font-extralight leading-[0.8] tracking-[-0.04em] text-[var(--color-ink)] transition-colors duration-500 group-hover:text-[var(--color-gold)] [font-family:var(--font-outfit)]">{s.n}</span>
@@ -32,7 +32,7 @@ export function Process({ title = 'A transparent process, start to finish.' }: {
             </Reveal>
           ))}
         </ol>
-      </div>
+      </Reveal>
     </section>
   );
 }

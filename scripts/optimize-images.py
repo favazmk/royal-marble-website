@@ -2,15 +2,17 @@
 
     python -I scripts/optimize-images.py
 
-Sources (committed): assets/generated/ (ChatGPT renders), assets/old-site/
-(client photography and facade renders from the previous site), assets/client/
-(client's own factory and site photography), assets/keyframes/.
+Sources (committed): assets/old-site/ (client photography and facade renders
+from the previous site), assets/client/ (client's own factory and site
+photography; assets/client/slots/ holds one pick per site slot).
+The client asked for no AI-generated imagery on the site, so nothing here reads
+assets/generated/ any more (those renders only fed the hero film keyframes).
 """
 from pathlib import Path
 from PIL import Image, ImageEnhance, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
-GEN = ROOT / 'assets' / 'generated'
+GEN = ROOT / 'assets' / 'generated'  # client OK'd these two uses: 3D slab textures, stair images
 OLD = ROOT / 'assets' / 'old-site'
 CLIENT = ROOT / 'assets' / 'client'
 PUB = ROOT / 'public'
@@ -28,39 +30,61 @@ def save(src: Path, dst: Path, max_w: int, q: int = 82, crop=None):
     print(f'{dst.relative_to(ROOT)}  {im.width}x{im.height}  {dst.stat().st_size // 1024}KB')
 
 
-def main():
-    # Stone textures for the 3D slab + swatches
-    for name in ['calacatta', 'blackgold', 'emerald', 'travertine', 'azul']:
-        src = GEN / f'rm-tex-{name}.png'
-        if src.exists():
-            save(src, PUB / 'img' / 'stone' / f'{name}.webp', 1024, 86)
+def grade(src: Path) -> Image.Image:
+    """Client photos are shot flat on site: light auto-contrast and a touch of warmth."""
+    im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
+    im = ImageOps.autocontrast(im, cutoff=0.6, preserve_tone=True)
+    im = ImageEnhance.Color(im).enhance(1.06)
+    r, g, b = im.split()
+    return Image.merge('RGB', (r.point(lambda v: min(255, round(v * 1.025))), g, b.point(lambda v: round(v * 0.975))))
 
-    # Service / editorial photography
+
+def save_im(im: Image.Image, dst: Path, max_w: int, q: int = 80):
+    if im.width > max_w:
+        im = im.resize((max_w, round(im.height * max_w / im.width)), Image.LANCZOS)
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    im.save(dst, 'WEBP', quality=q, method=6)
+    print(f'{dst.relative_to(ROOT)}  {im.width}x{im.height}  {dst.stat().st_size // 1024}KB')
+
+
+def portrait(im: Image.Image) -> Image.Image:
+    """Centre-crop to 2:3 portrait (materials cards, slab faces)."""
+    w = min(im.width, round(im.height * 2 / 3))
+    h = round(w * 3 / 2)
+    x, y = (im.width - w) // 2, (im.height - h) // 2
+    return im.crop((x, y, x + w, y + h))
+
+
+SLOTS = CLIENT / 'slots'  # picks from the client's Drive shoot, one per site slot (no AI imagery)
+
+
+def main():
+    # Stone textures for the 3D slab + swatches (ChatGPT renders, kept by client request)
+    for name in ['calacatta', 'blackgold', 'emerald', 'travertine', 'azul']:
+        save(GEN / f'rm-tex-{name}.png', PUB / 'img' / 'stone' / f'{name}.webp', 1024, 86)
+
+    # Service / editorial photography (home bento, page heroes, CTA)
     services = {
-        'kitchen': 'rm-svc-kitchen.png',
-        'bathroom': 'rm-svc-bathroom.png',
-        'facade': 'rm-svc-facade.png',
-        'factory': 'rm-svc-factory.png',
-        'stair': 'rm-svc-stair.png',
-        'mosaic': 'rm-svc-mosaic.png',
-        'hall': 'rm-kf-desktop-end.png',
-        'slabs': 'rm-kf-desktop-mid.png',
-        'block': 'rm-kf-desktop-start.png',
+        'kitchen': 'svc-countertops',
+        'bathroom': 'svc-cladding',
+        'facade': 'svc-facade',
+        'factory': 'factory-bridge-saw',
+        'mosaic': 'svc-mosaic',
+        'hall': 'svc-flooring',
+        'slabs': 'slab-calacatta-yard',
+        'block': 'factory-floor',
+        'hero': 'services-hero',
     }
     for out, name in services.items():
-        src = GEN / name
-        if src.exists():
-            save(src, PUB / 'img' / 'services' / f'{out}.webp', 1600, 80)
+        save_im(grade(SLOTS / f'{name}.jpg'), PUB / 'img' / 'services' / f'{out}.webp', 1600)
+    for out in ['stair', 'stair-floating']:  # ChatGPT renders, kept by client request
+        save(GEN / f'rm-svc-{out}.png', PUB / 'img' / 'services' / f'{out}.webp', 1600, 80)
+    save_im(grade(SLOTS / 'projects-hero.jpg'), PUB / 'img' / 'projects' / 'hero.webp', 1600)
 
-    # Materials page: each stone in use (ChatGPT renders); the flat textures above feed the 3D slab on home.
+    # Materials page: each stone in use, from the client's own sites.
     for name in ['calacatta', 'nero', 'emerald', 'travertine', 'azul']:
-        src = GEN / f'rm-mat-{name}.png'
-        if src.exists():
-            save(src, PUB / 'img' / 'materials' / f'{name}.webp', 1024, 82)
+        save_im(portrait(grade(SLOTS / f'mat-{name}.jpg')), PUB / 'img' / 'materials' / f'{name}.webp', 1024, 82)
     extra = {
-        GEN / 'rm-svc-stair-floating.png': PUB / 'img' / 'services' / 'stair-floating.webp',
-        GEN / 'rm-projects-hero.png': PUB / 'img' / 'projects' / 'hero.webp',
-        GEN / 'rm-svc-hero.png': PUB / 'img' / 'services' / 'hero.webp',
         OLD / 'hero-slabs.webp': PUB / 'img' / 'services' / 'slab-trio.webp',
         OLD / 'slab-carrara.webp': PUB / 'img' / 'stone' / 'carrara-slab.webp',
     }
@@ -68,22 +92,10 @@ def main():
         if src.exists():
             save(src, dst, 1600, 80)
 
-    # Polished marble objects for the home stat cards: true-alpha cutouts, kept transparent.
-    for name in ['sphere', 'cube', 'discs', 'arch']:
-        src = GEN / f'rm-obj-{name}.png'
-        if src.exists():
-            im = Image.open(src).convert('RGBA')
-            im = im.crop(im.getbbox())
-            im.thumbnail((420, 420), Image.LANCZOS)
-            dst = PUB / 'img' / 'objects' / f'{name}.webp'
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            im.save(dst, 'WEBP', quality=86, method=6)
-            print(f'{dst.relative_to(ROOT)}  {im.width}x{im.height}  {dst.stat().st_size // 1024}KB')
-
     # Project photography from the previous site
     for src in sorted(OLD.iterdir()):
         stem = src.stem
-        if stem.startswith(('fx', 'rockany', 'slab-', 'logo', 'icon', 'apple', 'hero-')):
+        if stem.startswith(('fx', 'rockany', 'slab-', 'logo', 'icon', 'apple', 'hero-', 'ansari')):  # ansari: duplicate, dropped
             continue
         save(src, PUB / 'img' / 'projects' / f'{stem}.webp', 1400, 80)
 
@@ -134,10 +146,10 @@ def main():
         # favicon.ico for crawlers and old browsers
         Image.open(PUB / 'brand' / 'icon-192.png').convert('RGBA').save(ROOT / 'app' / 'favicon.ico', sizes=[(32, 32), (48, 48)])
 
-    # Open Graph card from the slab-fan keyframe
-    og = GEN / 'rm-kf-desktop-mid.png'
+    # Open Graph card from a finished villa facade (client photo)
+    og = SLOTS / 'projects-hero.jpg'
     if og.exists():
-        im = Image.open(og).convert('RGB')
+        im = grade(og)
         w, h = im.size
         th = round(w * 630 / 1200)
         im = im.crop((0, (h - th) // 2, w, (h - th) // 2 + th)).resize((1200, 630), Image.LANCZOS)

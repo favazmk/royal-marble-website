@@ -9,8 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "film": "npm run film:desktop && npm run film:mobile",
-    "film:desktop": "node scripts/build-film.mjs --in assets/masters/desktop.mp4 --tier desktop --frames 240 --width 1280 --delogo 1128:568:64:64 --crf 22",
-    "film:mobile": "node scripts/build-film.mjs --in assets/masters/mobile.mp4 --tier mobile --frames 160 --width 720 --delogo 568:1128:64:64 --crf 24",
+    "film:desktop": "node scripts/build-film.mjs --in assets/masters/desktop.mp4 --tier desktop --frames 240 --width 1920 --delogo 1692:852:96:96 --crf 22",
+    "film:mobile": "node scripts/build-film.mjs --in assets/masters/mobile.mp4 --tier mobile --frames 160 --width 1080 --delogo 852:1692:96:96 --crf 24",
     "images": "python -I scripts/optimize-images.py"
   },
   "dependencies": {

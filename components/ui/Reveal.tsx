@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Fades and lifts a block into place the first time it enters the viewport.
+ * Fades and lifts a block into place as it enters the viewport, and fades it
+ * out upward once it scrolls past under the header (re-entering either way).
  *
  * Deliberately plain CSS transitions rather than GSAP: there can be dozens of
  * these on a page, and a shared IntersectionObserver costs far less than a
@@ -21,13 +22,18 @@ function getObserver() {
   observer ??= new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.setAttribute('data-revealed', 'true');
-        observer?.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          entry.target.setAttribute('data-revealed', 'true');
+          continue;
+        }
+        // Out of the band: above it means scrolled past (close upward), below
+        // means not reached yet (re-arm the entrance for the next pass).
+        const past = entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0);
+        entry.target.setAttribute('data-revealed', past ? 'past' : 'false');
       }
     },
-    // Fire a little before the element reaches the main visual area.
-    { rootMargin: '0px 0px -12% 0px', threshold: 0.01 },
+    // Opens a little before the main visual area; closes once it slides under the header.
+    { rootMargin: '-8% 0px -12% 0px', threshold: 0 },
   );
   return observer;
 }

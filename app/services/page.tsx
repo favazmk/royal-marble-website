@@ -39,7 +39,7 @@ export default function ServicesPage() {
         intro="Supply only, or the complete package: survey, samples, fabrication, delivery, installation, snagging and handover."
         mega="services"
         image="/img/services/hero.webp"
-        alt="Double-height hall with a book-matched Statuario wall, a waterjet-cut marble floor medallion and a travertine bench in warm afternoon light"
+        alt="Residential lobby by Royal Marble: polished white marble floor with black marble inlay lines running to the glazing"
         card={{ text: 'Send your drawings and quantities — we reply with a quotation and programme.', href: '/contact', cta: 'Request a quotation ↗' }}
       />
 
@@ -48,7 +48,7 @@ export default function ServicesPage() {
         <h2 id="svc-list" className="sr-only">Our services</h2>
         <div className="mt-14 space-y-3">
           {SERVICES.map((s, i) => (
-            <article key={s.id} id={s.id} className="u-card grid scroll-mt-28 gap-6 overflow-hidden p-3 md:grid-cols-2 md:p-4">
+            <Reveal as="article" key={s.id} id={s.id} className="u-card grid scroll-mt-28 gap-6 overflow-hidden p-3 md:grid-cols-2 md:p-4">
               <Parallax className={`relative aspect-[4/3] rounded-[var(--radius-lg)] md:aspect-auto md:min-h-[26rem] ${i % 2 ? 'md:order-2' : ''}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={s.photo} alt={`${s.title} by Royal Marble`} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
@@ -64,7 +64,7 @@ export default function ServicesPage() {
                   Discuss {s.title.toLowerCase()} <span className="icon-btn !h-9 !w-9 !bg-[var(--color-ink)] !text-white"><ArrowIcon /></span>
                 </Link>
               </Reveal>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>

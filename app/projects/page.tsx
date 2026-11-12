@@ -24,7 +24,7 @@ export default function ProjectsPage() {
         intro="High-rise facades, waterfront villas, hospitality and public landmarks — fabricated in our factory and installed by our own teams."
         mega="projects"
         image="/img/projects/hero.webp"
-        alt="Residential tower entrance clad in travertine and bronze porcelain at blue hour"
+        alt="Contemporary villa clad in white large-format porcelain on a ventilated facade by Royal Marble"
         card={{ text: 'Your project could be next. Tell us what you are building.', href: '/contact', cta: 'Start a project ↗' }}
       />
 
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
       </section>
 
       <section className="u-shell pb-16" aria-labelledby="record">
-        <div className="u-card p-6 md:p-12">
+        <Reveal className="u-card p-6 md:p-12">
           <Heading eyebrow="Track record" lines={['Completed packages for', '*leading contractors.*']} />
           <h2 id="record" className="sr-only">Completed packages</h2>
           <ul className="mt-10 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
               </Reveal>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </section>
 
       <Cta image="/img/stone/carrara-slab.webp" body="Main contractor, consultant or homeowner — share the scope and we come back with a package price, samples and a fabrication schedule." title={['Your project', 'could be next.']} />

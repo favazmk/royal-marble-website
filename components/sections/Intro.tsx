@@ -41,7 +41,7 @@ export function Intro() {
           </div>
           <Parallax className="mt-6 aspect-[4/3] rounded-[var(--radius-lg)] md:mt-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/img/services/factory.webp" alt="CNC bridge saw cutting a Calacatta marble slab under a curtain of cooling water in the Royal Marble factory" className="h-full w-full object-cover" loading="lazy" width={1536} height={1024} />
+            <img src="/img/services/factory.webp" alt="Bridge saw cutting stone in the Royal Marble factory in Umm Al Quwain, with an operator at the line" className="h-full w-full object-cover" loading="lazy" width={1536} height={1024} />
           </Parallax>
           <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">
             Inside the factory <span className="icon-btn !h-8 !w-8 !bg-[var(--color-ink)] !text-white"><ArrowIcon /></span>

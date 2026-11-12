@@ -7,11 +7,12 @@
   "5": "compilerOptions",
   "6": "app/page.tsx",
   "7": "build-film.mjs",
-  "8": "scripts",
   "9": "optimize-images.py",
   "10": "next-env.d.ts",
   "11": "placeholder-film.sh",
   "12": "postcss.config.mjs",
   "13": "Royal Marble — hero scroll film: generation brief",
-  "14": "Royal Marble — website"
+  "14": "Royal Marble — website",
+  "15": "layout.tsx",
+  "16": "vercel.json"
 }
